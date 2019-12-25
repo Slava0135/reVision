@@ -1,0 +1,18 @@
+type: Drill
+name: Scrabbler
+description: Small drill made out of scrap.
+	
+size: 1
+health: 40
+tier: 1
+drillTime: 600
+hasLiquids: false
+isBoostable: false
+liquidBoostIntensity: 1
+
+requirements: [
+	scrap/4
+]
+	
+category: production
+alwaysUnlocked: true

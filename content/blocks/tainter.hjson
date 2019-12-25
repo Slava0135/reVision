@@ -1,0 +1,38 @@
+type: GenericCrafter
+name: Tainter
+description: Taints water with spore pods.
+	
+size: 2
+health: 120
+craftTime: 60
+liquidCapacity: 60
+	
+hasPower: true
+hasLiquids: true
+hasItems: true
+consumes: {
+	power: 0.5
+	items: {
+		items: [
+			spore-pod/1
+		]
+	}
+	liquid: {
+		liquid: water
+		amount: 0.2
+	}
+}
+	
+outputLiquid: {
+	liquid: polluted-water
+	amount: 12.0
+}
+	
+requirements: [
+	copper/100
+	lead/50
+	metaglass/25
+]
+	
+category: crafting
+alwaysUnlocked: true

@@ -1,0 +1,40 @@
+type: GenericCrafter
+name: Filter
+description: Filters polluted water and extracts thorium from it.
+	
+size: 3
+health: 180
+craftTime: 60
+liquidCapacity: 240.0
+	
+hasPower: true
+hasLiquids: true
+hasItems: true
+consumes: {
+	power: 1.0
+	items: {
+		items: [
+			coal/1
+		]
+	}
+	liquid: {
+		liquid: polluted-water
+		amount: 1.0
+	}
+}
+	
+outputItem: thorium/1
+outputLiquid: {
+	liquid: water
+	amount: 60.0
+}
+	
+requirements: [
+	copper/150
+	lead/75
+	graphite/50
+	metaglass/50
+]
+	
+category: crafting
+alwaysUnlocked: true

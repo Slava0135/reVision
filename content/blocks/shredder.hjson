@@ -1,0 +1,43 @@
+type: ItemTurret
+name: Shredder
+description: Small turret made out of scrap.
+
+size: 1
+health: 250
+range: 100
+ammoUseEffect: none
+maxAmmo: 100
+inaccuracy: 30
+rotatespeed: 12
+reload: 1
+shootSound: none
+	
+ammo: {
+	scrap: {
+		speed: 3.0
+		damage: 3
+		bulletWidth: 5
+		bulletHeight: 7
+		shootEffect: shootSmall
+		smokeEffect: shootSmallSmoke
+		ammoMultiplier: 20
+	}
+	coal: {
+		speed: 3.0
+		damage: 3
+		bulletWidth: 5
+		bulletHeight: 7
+		frontColor: FFA500
+		backColor: FFA500
+		status: burning
+		statusDuration: 600
+		shootEffect: shootSmall
+		smokeEffect: shootSmallSmoke
+		ammoMultiplier: 20
+	}
+}
+requirements: [
+	scrap/35
+]
+category: turret
+alwaysUnlocked: true

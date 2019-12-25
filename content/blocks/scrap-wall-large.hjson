@@ -1,0 +1,5 @@
+requirements: [
+	scrap/16
+]
+buildVisibility: shown
+alwaysUnlocked: true
