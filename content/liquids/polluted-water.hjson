@@ -1,0 +1,7 @@
+name: Polluted Water
+description: Tainted liquid. Can be cleared in order to get thorium from it.
+temperature: 0.5
+viscosity: 0.5
+heatCapacity: 0.4
+effect: corroded
+color: 645195
