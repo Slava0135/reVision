@@ -13,9 +13,9 @@ hasPower: false
 result: water
 	
 requirements: [
-	copper/300
-	lead/200
-	metaglass/100 
+	copper/400
+	lead/250
+	metaglass/200
 ]
 
 category: production
