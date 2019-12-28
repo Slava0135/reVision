@@ -1,0 +1,77 @@
+type: LiquidTurret
+name: Tsunami
+description: Upgraded version of Wave
+
+size: 4
+health: 4000
+range: 220
+maxAmmo: 120
+recoil: 0
+reload: 1
+inaccuracy: 5
+shootCone: 50
+shootSound: splash
+shootEffect: shootLiquid
+liquidCapacity: 120
+
+ammo: {
+	water: {
+		type: LiquidBulletType
+		liquid: water
+		damage: 4
+		speed: 4
+		knockback: 1
+		ammoMultiplier: 1
+		status: wet
+		statusDuration: 600
+	}
+	polluted-water: {
+		type: LiquidBulletType
+		liquid: polluted-water
+		damage: 4
+		speed: 4
+		knockback: 1
+		ammoMultiplier: 1
+		status: wet
+		statusDuration: 600
+	}
+	slag: {
+		type: LiquidBulletType
+		liquid: slag
+		damage: 4
+		speed: 4
+		knockback: 1
+		ammoMultiplier: 1
+		status: burning
+		statusDuration: 600
+	}
+	oil: {
+		type: LiquidBulletType
+		liquid: oil
+		damage: 4
+		speed: 4
+		knockback: 1
+		ammoMultiplier: 1
+		status: tarred
+		statusDuration: 600
+	}
+	cryofluid: {
+		type: LiquidBulletType
+		liquid: cryofluid
+		damage: 4
+		speed: 4
+		knockback: 1
+		ammoMultiplier: 1
+		status: freezing
+		statusDuration: 600
+	}
+}
+
+requirements: [
+	lead/500
+	titanium/250
+	metaglass/100
+]
+
+category: turret
+alwaysUnlocked: true
