@@ -1,9 +1,9 @@
 type: LiquidTurret
 name: Tsunami
-description: Upgraded version of Wave
+description: An upgraded version of Wave.
 
 size: 4
-health: 4000
+health: 3000
 range: 220
 maxAmmo: 120
 recoil: 0

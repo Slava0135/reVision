@@ -1,5 +1,5 @@
 name: Thorns
-description: Damages units walking on it.
+description: Damages all units walking on it.
 
 hasShadow: false
 health: 100
