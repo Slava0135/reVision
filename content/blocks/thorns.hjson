@@ -1,0 +1,16 @@
+name: Thorns
+description: Damages units walking on it.
+
+hasShadow: false
+health: 100
+update: false
+destructible: true
+solid: false
+targetable: false
+
+requirements: [
+	scrap/4
+]
+
+alwaysUnlocked: true
+category: defense
