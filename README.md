@@ -19,3 +19,6 @@ Mindustry Mod.
 * An upgraded version of Wave.
 #### Thorns
 * Damage all units walking on it.
+#### Shock Mine
+* Increased health (from 40 to 250).
+* Can be activated 10 times.
