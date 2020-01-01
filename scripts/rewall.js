@@ -8,3 +8,5 @@ const reWall = extendContent(Wall, "rewall", {
 		}
 	}
 });
+
+reWall.localizedName = "reWall";

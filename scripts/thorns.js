@@ -9,3 +9,5 @@ const thorns = extendContent(ShockMine, "thorns", {
         }
     }
 });
+
+thorns.localizedName = "Thorns";
