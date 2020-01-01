@@ -68,7 +68,7 @@ ammo: {
 }
 
 requirements: [
-	lead/500
+	lead/400
 	titanium/250
 	metaglass/100
 ]

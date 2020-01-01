@@ -15,7 +15,7 @@ result: water
 requirements: [
 	copper/400
 	lead/250
-	metaglass/200
+	metaglass/100
 ]
 
 category: production

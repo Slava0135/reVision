@@ -1,9 +1,11 @@
-const sec = 60;
-damage = 10 / sec;
-tileDamage = 100 / sec;
+const damage = 5;
+const tileDamage = 25;
+const cooldown = 30;
 const thorns = extendContent(ShockMine, "thorns", {
-	unitOn(tile, unit) {
-		unit.damage(damage);
-		tile.entity.damage(tileDamage);
-	}
+    unitOn(tile, unit) {
+        if (tile.entity.timer.get(0, cooldown)) {
+            unit.damage(damage);
+            tile.entity.damage(tileDamage);
+        }
+    }
 });

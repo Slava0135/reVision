@@ -31,7 +31,7 @@ outputLiquid: {
 	
 requirements: [
 	copper/150
-	lead/75
+	lead/100
 	graphite/50
 	metaglass/50
 ]

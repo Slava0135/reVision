@@ -1,0 +1,14 @@
+name: reWall
+description: A self-regenerating wall.
+
+health: 600
+update: true
+
+requirements: [
+	silicon/3
+	lead/2
+	titanium/1
+]
+
+alwaysUnlocked: true
+category: defense
