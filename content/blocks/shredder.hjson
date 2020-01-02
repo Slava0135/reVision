@@ -40,4 +40,4 @@ requirements: [
 	scrap/35
 ]
 category: turret
-alwaysUnlocked: true
+research: duo

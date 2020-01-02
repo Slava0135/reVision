@@ -15,4 +15,4 @@ requirements: [
 ]
 	
 category: production
-alwaysUnlocked: true
+research: sieve

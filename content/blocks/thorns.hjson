@@ -12,5 +12,5 @@ requirements: [
 	scrap/4
 ]
 
-alwaysUnlocked: true
 category: defense
+research: sieve

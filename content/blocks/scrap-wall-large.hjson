@@ -2,4 +2,4 @@ requirements: [
 	scrap/16
 ]
 buildVisibility: shown
-alwaysUnlocked: true
+research: scrap-wall

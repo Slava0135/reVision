@@ -11,5 +11,5 @@ requirements: [
 	titanium/4
 ]
 
-alwaysUnlocked: true
 category: defense
+research: rewall

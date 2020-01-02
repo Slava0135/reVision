@@ -1,0 +1,13 @@
+ammo: {
+	polluted-water: {
+		type: LiquidBulletType
+		liquid: polluted-water
+		knockback: 0.7
+		status: wet
+		statusDuration: 300
+	}
+	water: waterShot
+	slag: slagShot
+	oil: oilShot
+	cryofluid: cryoShot
+}

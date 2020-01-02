@@ -74,4 +74,4 @@ requirements: [
 ]
 
 category: turret
-alwaysUnlocked: true
+research: wave

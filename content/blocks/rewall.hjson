@@ -10,5 +10,5 @@ requirements: [
 	titanium/1
 ]
 
-alwaysUnlocked: true
 category: defense
+research: titanium-wall

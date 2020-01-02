@@ -1,5 +1,5 @@
 name: "reVision"
 author: "Slava0135"
-description: "[gold]A new way forward in vanilla style.[]"
-version: 2.1
-minGameVersion: 102
+description: "[#ff9800]A new way forward in vanilla style.[]"
+version: "3"
+minGameVersion: "102"

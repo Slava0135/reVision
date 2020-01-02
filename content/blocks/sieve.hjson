@@ -24,4 +24,4 @@ requirements: [
 ]
 
 category: crafting
-alwaysUnlocked: true
+research: mechanical-drill

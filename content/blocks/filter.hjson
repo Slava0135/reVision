@@ -37,4 +37,4 @@ requirements: [
 ]
 	
 category: crafting
-alwaysUnlocked: true
+research: tainter
