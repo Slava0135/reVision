@@ -20,7 +20,6 @@ Mindustry Mod.
 #### Thorns
 * Damage all units walking on it.
 #### Shock Mine
-* Increased health (from 40 to 250).
-* Can be activated 10 times.
+* Increased health and uses limit.
 #### reWall
 * Self-regenerating Wall (Large and Small)

@@ -15,7 +15,7 @@ shootSound: none
 ammo: {
 	scrap: {
 		speed: 3.0
-		damage: 3
+		damage: 2
 		bulletWidth: 5
 		bulletHeight: 7
 		shootEffect: shootSmall
@@ -24,7 +24,7 @@ ammo: {
 	}
 	coal: {
 		speed: 3.0
-		damage: 3
+		damage: 1
 		bulletWidth: 5
 		bulletHeight: 7
 		frontColor: FFA500
@@ -35,9 +35,21 @@ ammo: {
 		smokeEffect: shootSmallSmoke
 		ammoMultiplier: 20
 	}
+	silicon: {
+		speed: 3.0
+		damage: 2
+		bulletWidth: 5
+		bulletHeight: 7
+		shootEffect: shootSmall
+		smokeEffect: shootSmallSmoke
+		homingPower: 0.1
+		ammoMultiplier: 20
+	}
 }
+
 requirements: [
 	scrap/35
 ]
+
 category: turret
 research: duo

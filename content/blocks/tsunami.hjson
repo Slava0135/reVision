@@ -8,8 +8,8 @@ range: 220
 maxAmmo: 120
 recoil: 0
 reload: 1
-inaccuracy: 5
-shootCone: 50
+inaccuracy: 10
+shootCone: 45
 shootSound: splash
 shootEffect: shootLiquid
 liquidCapacity: 120
@@ -20,7 +20,7 @@ ammo: {
 		liquid: water
 		damage: 4
 		speed: 4
-		knockback: 1
+		knockback: 0.7
 		ammoMultiplier: 1
 		status: wet
 		statusDuration: 600
@@ -30,7 +30,7 @@ ammo: {
 		liquid: polluted-water
 		damage: 4
 		speed: 4
-		knockback: 1
+		knockback: 0.7
 		ammoMultiplier: 1
 		status: wet
 		statusDuration: 600
@@ -40,9 +40,9 @@ ammo: {
 		liquid: slag
 		damage: 4
 		speed: 4
-		knockback: 1
+		knockback: 0.6
 		ammoMultiplier: 1
-		status: burning
+		status: melting
 		statusDuration: 600
 	}
 	oil: {
@@ -50,7 +50,7 @@ ammo: {
 		liquid: oil
 		damage: 4
 		speed: 4
-		knockback: 1
+		knockback: 0.6
 		ammoMultiplier: 1
 		status: tarred
 		statusDuration: 600
@@ -60,7 +60,7 @@ ammo: {
 		liquid: cryofluid
 		damage: 4
 		speed: 4
-		knockback: 1
+		knockback: 0.6
 		ammoMultiplier: 1
 		status: freezing
 		statusDuration: 600
