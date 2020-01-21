@@ -4,7 +4,7 @@ description: Small drill made out of scrap.
 	
 size: 1
 health: 40
-tier: 1
+tier: 2
 drillTime: 600
 hasLiquids: false
 isBoostable: false

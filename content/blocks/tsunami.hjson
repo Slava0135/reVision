@@ -42,7 +42,7 @@ ammo: {
 		speed: 4
 		knockback: 0.6
 		ammoMultiplier: 1
-		status: melting
+		status: burning
 		statusDuration: 600
 	}
 	oil: {
