@@ -1,6 +1,6 @@
 health = 600;
 const heal = health / 50;
-const cooldown = 30;
+const cooldown = 60;
 const reWall = extendContent(Wall, "rewall", {
 	update(tile) {
 		if (tile.entity.health()< tile.entity.maxHealth() & tile.entity.timer.get(0, cooldown)) {
