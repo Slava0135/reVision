@@ -18,5 +18,6 @@ requirements: [
 	metaglass/100
 ]
 
+attribute: spores
 category: production
 research: water-extractor
