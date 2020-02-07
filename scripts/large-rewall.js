@@ -10,5 +10,3 @@ const largeReWall = extendContent(Wall, "large-rewall", {
 		}
 	}
 });
-
-largeReWall.localizedName = "Large reWall";
