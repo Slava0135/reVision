@@ -5,7 +5,7 @@ type: GenericCrafter
 size: 1
 health: 60
 craftTime: 60
-idleSound: none
+craftEffect: pulverize
 
 hasPower: false
 hasLiquids: false

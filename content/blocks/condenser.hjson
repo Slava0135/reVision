@@ -4,9 +4,10 @@ description: Slowly condensates water from the atmosphere.
 	
 size: 4
 health: 360
-pumpAmount: 0.13
+pumpAmount: 0.11
 liquidCapacity: 200.0
 rotateSpeed: 0.0
+updateEffect: steam
 	
 hasPower: false
 	

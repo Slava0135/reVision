@@ -6,6 +6,8 @@ size: 3
 health: 180
 craftTime: 60
 liquidCapacity: 240.0
+craftEffect: steam
+idleSound: release
 
 hasPower: true
 hasLiquids: true

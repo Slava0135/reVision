@@ -6,7 +6,9 @@ size: 2
 health: 120
 craftTime: 60
 liquidCapacity: 60
-	
+idleSound: door
+craftEffect: pickup
+
 hasPower: true
 hasLiquids: true
 hasItems: true
