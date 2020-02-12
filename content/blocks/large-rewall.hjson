@@ -1,6 +1,3 @@
-name: Large reWall
-description: A self-regenerating wall.
-
 health: 2400
 update: true
 size: 2
