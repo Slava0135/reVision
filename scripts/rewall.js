@@ -1,5 +1,5 @@
 health = 600;
-const heal = health / 50;
+const heal = health / 25;
 const cooldown = 60;
 const reWall = extendContent(Wall, "rewall", {
 	update(tile) {
