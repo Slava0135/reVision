@@ -1,6 +1,4 @@
 ![logo](preview.png)
-# reVision
-Mindustry Mod.
 ## Additions
 #### Scrap
 * Now it's more useful - you can put it in the core and build walls and other buildings with it.
