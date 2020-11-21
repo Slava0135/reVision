@@ -1,9 +1,8 @@
-ammo: {
+ammoTypes: {
 	polluted-water: {
 		type: LiquidBulletType
 		liquid: polluted-water
 		knockback: 0.7
-		status: wet
 		statusDuration: 300
 	}
 	water: waterShot
