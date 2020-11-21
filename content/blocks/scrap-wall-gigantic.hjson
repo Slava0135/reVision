@@ -1,5 +1,0 @@
-requirements: [
-	scrap/64
-]
-buildVisibility: shown
-research: scrap-wall-huge

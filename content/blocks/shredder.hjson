@@ -9,11 +9,12 @@ ammoUseEffect: none
 maxAmmo: 100
 inaccuracy: 30
 rotatespeed: 12
-reload: 1
+reload: 0.5
 shootSound: none
 	
-ammo: {
+ammoTypes: {
 	scrap: {
+	    type: BasicBulletType
 		speed: 3.0
 		damage: 2
 		bulletWidth: 5
@@ -23,6 +24,7 @@ ammo: {
 		ammoMultiplier: 20
 	}
 	coal: {
+	    type: BasicBulletType
 		speed: 3.0
 		damage: 1
 		bulletWidth: 5
@@ -36,6 +38,7 @@ ammo: {
 		ammoMultiplier: 20
 	}
 	silicon: {
+	    type: BasicBulletType
 		speed: 3.0
 		damage: 2
 		bulletWidth: 5

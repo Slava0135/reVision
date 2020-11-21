@@ -1,11 +1,13 @@
-health = 2400;
-const heal = health / 25;
+const fraction = 25
 const cooldown = 60;
-const largeReWall = extendContent(Wall, "large-rewall", {
-	update(tile) {
-		if (tile.entity.health() < tile.entity.maxHealth() & tile.entity.timer.get(0, cooldown)) {
-			tile.entity.healBy(heal);
-			Effects.effect(Fx.healBlockFull, Tmp.c1.set(Color.valueOf("84f491")), tile.drawx(), tile.drawy(), tile.block().size);
-		}
-	}
+
+const largeReWall = extendContent(Wall, "large-rewall", {});
+
+largeReWall.buildType = () => extendContent(Wall.WallBuild, largeReWall, {
+	updateTile() {
+    	if (this.damaged() & this.timer.get(0, cooldown)) {
+            this.heal(this.maxHealth / fraction);
+            Fx.healBlockFull.at(this.x, this.y, largeReWall.size, Pal.heal);
+        }
+    }
 });

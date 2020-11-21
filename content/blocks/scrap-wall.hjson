@@ -1,5 +1,0 @@
-requirements: [
-	scrap/4
-]
-buildVisibility: shown
-research: sieve
