@@ -1,5 +1,6 @@
 ![logo](preview.png)
 ## Additions
+#### Buildable scrap walls
 #### Scraper
 * Small drill made out of scrap.
 #### Shredder
