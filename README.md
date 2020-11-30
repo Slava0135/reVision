@@ -12,7 +12,7 @@
 #### Tainter
 * Taints water using spore pods.
 #### Thorns
-* Damage all units walking on it.
+* Damage all units walking on them.
 #### Shock Mine
 * Increased health and uses limit.
 #### reWall
