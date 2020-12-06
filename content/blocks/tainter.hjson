@@ -31,10 +31,10 @@ outputLiquid: {
 }
 	
 requirements: [
-	copper/100
-	lead/50
-	metaglass/25
+	copper/150
+	lead/125
+	metaglass/75
 ]
 	
 category: crafting
-research: cultivator
+research: filter
