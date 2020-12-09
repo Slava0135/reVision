@@ -11,7 +11,7 @@ const heater = extendContent(GenericCrafter, "heater", {
 heater.buildType = () => extendContent(GenericCrafter.GenericCrafterBuild, heater, {
 	draw() {
 	    Draw.rect(heater.regions[0], this.x, this.y);
-	    //Drawf.liquid(heater.regions[1], this.x, this.y, this.liquids.get(outputLiquid.liquid) / this.liquidCapacity, this.outputLiquid.color);
+	    Drawf.liquid(heater.regions[1], this.x, this.y, this.liquids.get(this.outputLiquid.liquid) / heater.liquidCapacity, Liquids.water.color);
 	    Draw.rect(heater.regions[2], this.x, this.y);
 	}
 });
