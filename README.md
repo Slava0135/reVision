@@ -1,5 +1,12 @@
 ![logo](preview.png)
+# V6 - WINTER UPDATE
 ## Additions
+#### Snowballs!
+* Mine snow or ice snow to get them. Use as ammo in Shredder and a little bit more!
+#### Freezer!
+* Make snowballs from water
+#### Heater!
+* Melt snowballs back into water
 #### Buildable scrap walls
 #### Scraper
 * Small drill made out of scrap.

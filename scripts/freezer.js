@@ -11,7 +11,7 @@ const freezer = extendContent(GenericCrafter, "freezer", {
 freezer.buildType = () => extendContent(GenericCrafter.GenericCrafterBuild, freezer, {
 	draw() {
 	    Draw.rect(freezer.regions[0], this.x, this.y);
-	    Drawf.liquid(freezer.regions[1], this.x, this.y, this.liquids.total() / this.liquidCapacity, this.liquids.current().color);
+	    //Drawf.liquid(freezer.regions[1],, this.x, this.y, this.liquids.get(outputLiquid.liquid) / this.liquidCapacity, this.outputLiquid.color);
 	    Draw.rect(freezer.regions[2], this.x, this.y);
 	}
 });
