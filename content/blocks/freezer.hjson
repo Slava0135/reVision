@@ -6,18 +6,18 @@ size: 3
 
 health: 60
 craftTime: 30
-liquidCapacity: 60.0
-craftEffect: steam
+liquidCapacity: 120.0
+craftEffect: pickup
 idleSound: release
 
 hasPower: true
 hasLiquids: true
 hasItems: true
 consumes: {
-	power: 1.0
+	power: 2.0
 	liquid: {
 		liquid: water
-		amount: 0.5
+		amount: 0.4
 	}
 }
 
@@ -30,6 +30,5 @@ requirements: [
 	metaglass/100
 ]
 
-alwaysUnlocked: true
-
 category: crafting
+research: heater

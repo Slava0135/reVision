@@ -1,0 +1,36 @@
+type: GenericCrafter
+name: Heater
+description: Melts snowballs into water.
+	
+size: 2
+health: 120
+craftTime: 20
+liquidCapacity: 60.0
+craftEffect: steam
+idleSound: release
+
+hasPower: true
+hasLiquids: true
+hasItems: true
+consumes: {
+	power: 1.0
+	items: {
+		items: [
+			snowball/1
+		]
+	}
+}
+
+outputLiquid: {
+	liquid: water
+	amount: 4.0
+}
+	
+requirements: [
+	copper/150
+    lead/125
+    metaglass/75
+]
+	
+category: crafting
+research: melter
