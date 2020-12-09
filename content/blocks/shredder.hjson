@@ -31,7 +31,7 @@ ammoTypes: {
 		frontColor: FFA500
 		backColor: FFA500
 		status: burning
-		statusDuration: 600
+		statusDuration: 50
 		shootEffect: shootSmall
 		smokeEffect: shootSmallSmoke
 		ammoMultiplier: 10
@@ -44,8 +44,22 @@ ammoTypes: {
 		bulletHeight: 7
 		shootEffect: shootSmall
 		smokeEffect: shootSmallSmoke
-		homingPower: 0.1
+		homingPower: 0.05
 		ammoMultiplier: 10
+	}
+	snowball: {
+	    type: BasicBulletType
+        speed: 3.0
+        damage: 0
+        bulletWidth: 5
+        bulletHeight: 5
+        frontColor: FFFFFF
+        backColor: FFFFFF
+        status: freezing
+        statusDuration: 50
+        shootEffect: shootSmall
+        smokeEffect: shootSmallSmoke
+        ammoMultiplier: 10
 	}
 }
 

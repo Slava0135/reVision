@@ -1,0 +1,35 @@
+type: GenericCrafter
+name: Freezer
+description: Makes snow from water.
+
+size: 3
+
+health: 60
+craftTime: 30
+liquidCapacity: 60.0
+craftEffect: steam
+idleSound: release
+
+hasPower: true
+hasLiquids: true
+hasItems: true
+consumes: {
+	power: 1.0
+	liquid: {
+		liquid: water
+		amount: 0.5
+	}
+}
+
+outputItem: snowball/3
+
+requirements: [
+	copper/250
+	lead/200
+	graphite/100
+	metaglass/100
+]
+
+alwaysUnlocked: true
+
+category: crafting
