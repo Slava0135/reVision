@@ -1,6 +1,6 @@
 ![logo](preview.png)
 
-Also check out (routorio)[https://github.com/DeltaNedas/routorio]
+Also check out [routorio](https://github.com/DeltaNedas/routorio)
 
 # V6 - WINTER UPDATE
 ## Additions
