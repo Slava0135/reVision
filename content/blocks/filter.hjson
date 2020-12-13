@@ -13,7 +13,7 @@ hasPower: true
 hasLiquids: true
 hasItems: true
 consumes: {
-	power: 1.5
+	power: 1.0
 	items: {
 		items: [
 			coal/2
@@ -32,10 +32,10 @@ outputLiquid: {
 }
 	
 requirements: [
-	copper/250
-	lead/200
-	graphite/100
-	metaglass/100
+	copper/125
+	lead/100
+	graphite/50
+	metaglass/50
 ]
 	
 category: crafting

@@ -1,6 +1,6 @@
 name: "reVision"
 displayName: "reVision"
 author: "Slava0135"
-description: "[#ff9800]A new way forward in vanilla style.[]"
-version: "6.2"
+description: "[#ff9800]A new way forward in vanilla style.[] Also try out DeltaNedas/Routorio!"
+version: "6.3"
 minGameVersion: "120"

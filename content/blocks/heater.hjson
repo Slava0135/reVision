@@ -12,7 +12,7 @@ hasPower: true
 hasLiquids: true
 hasItems: true
 consumes: {
-	power: 1.0
+	power: 0.5
 	items: {
 		items: [
 			snowball/1
@@ -26,9 +26,9 @@ outputLiquid: {
 }
 	
 requirements: [
-	copper/150
-    lead/125
-    metaglass/75
+	copper/75
+    lead/50
+    metaglass/50
 ]
 	
 category: crafting
