@@ -9,6 +9,7 @@ drillTime: 600
 hasLiquids: false
 isBoostable: false
 liquidBoostIntensity: 1
+drawMineItem: false
 
 requirements: [
 	scrap/4
