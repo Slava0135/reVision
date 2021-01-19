@@ -33,7 +33,7 @@ outputLiquid: {
 requirements: [
 	copper/75
 	lead/50
-	metaglass/50
+	titanium/50
 ]
 	
 category: crafting
