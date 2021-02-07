@@ -1,0 +1,8 @@
+name: "example-kotlin-mod"
+displayName: "Example Kotlin Mod"
+author: "Anuke"
+main: "example.ExampleKotlinMod"
+description: "A Kotlin jar mod."
+version: "1.0"
+minGameVersion: 120
+
