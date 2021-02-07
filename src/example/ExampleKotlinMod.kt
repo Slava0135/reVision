@@ -9,7 +9,7 @@ import mindustry.ui.dialogs.*
 class ExampleKotlinMod : Mod(){
 
     init{
-        Log.info("Loaded ExampleJavaMod constructor.")
+        Log.info("Loaded ExampleKotlinMod constructor.")
 
         //listen for game load event
         Events.on(ClientLoadEvent::class.java){
