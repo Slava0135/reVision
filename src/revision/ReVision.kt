@@ -5,10 +5,7 @@ import mindustry.mod.Mod
 import mindustry.world.blocks.defense.turrets.LiquidTurret
 import mindustry.world.blocks.environment.Floor
 import mindustry.world.meta.BuildVisibility
-import revision.content.ReBlocks
-import revision.content.ReBullets
-import revision.content.ReItems
-import revision.content.ReLiquids
+import revision.content.*
 
 class ReVision : Mod() {
     override fun loadContent() {
@@ -16,6 +13,7 @@ class ReVision : Mod() {
         ReItems().load()
         ReBullets().load()
         ReBlocks().load()
+        ReTechTree().load()
 
         (Blocks.darksandTaintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
         (Blocks.taintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
