@@ -25,7 +25,7 @@ open class Thorns(name: String) : Block(name) {
         }
 
         override fun unitOn(unit: Unit?) {
-            if (this.timer.get(timerDamage, cooldown)) {
+            if (timer.get(timerDamage, cooldown)) {
                 unit!!.damage(damage)
                 damage(tileDamage)
             }
