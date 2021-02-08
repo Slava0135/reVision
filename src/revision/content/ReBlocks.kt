@@ -11,6 +11,7 @@ import mindustry.type.ItemStack.with
 import mindustry.type.LiquidStack
 import mindustry.world.Block
 import mindustry.world.blocks.production.GenericCrafter
+import revision.world.blocks.production.Freezer
 
 class ReBlocks : ContentList {
     override fun load() {
@@ -35,6 +36,11 @@ class ReBlocks : ContentList {
                 consumes.power(1f)
                 consumes.item(Items.coal, 2)
                 consumes.liquid(ReLiquids.pollutedWater, 1f)
+            }
+        }
+        freezer = object : Freezer("freezer") {
+            init {
+
             }
         }
     }

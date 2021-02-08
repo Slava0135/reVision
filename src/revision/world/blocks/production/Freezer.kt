@@ -1,4 +1,6 @@
 package revision.world.blocks.production
 
-class Freezer {
+import mindustry.world.blocks.production.GenericCrafter
+
+open class Freezer(name: String) : GenericCrafter(name) {
 }

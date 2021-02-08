@@ -1,4 +1,6 @@
 package revision.world.blocks.defense
 
-class Thorns {
+import mindustry.world.Block
+
+class Thorns(name: String) : Block(name) {
 }
