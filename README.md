@@ -1,4 +1,4 @@
-![logo](preview.png)
+![logo](assets/preview.png)
 
 Also check out [routorio](https://github.com/DeltaNedas/routorio)
 
