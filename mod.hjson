@@ -1,8 +1,8 @@
-name: "example-kotlin-mod"
-displayName: "Example Kotlin Mod"
-author: "Anuke"
-main: "example.ExampleKotlinMod"
+name: "revision"
+displayName: "reVision"
+author: "Slava0135"
+main: "revision.ReVision"
 description: "A Kotlin jar mod."
-version: "1.0"
+version: "7.0"
 minGameVersion: 120
 
