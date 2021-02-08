@@ -10,9 +10,9 @@ import revision.content.ReLiquids
 
 class ReVision : Mod() {
     override fun loadContent() {
-        ReBlocks().load()
         ReLiquids().load()
         ReItems().load()
+        ReBlocks().load()
 
         (Blocks.darksandTaintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
         (Blocks.taintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
