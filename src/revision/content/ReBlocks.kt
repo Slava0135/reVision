@@ -44,6 +44,8 @@ class ReBlocks : ContentList {
                 consumes.power(1f)
                 consumes.item(Items.coal, 2)
                 consumes.liquid(ReLiquids.pollutedWater, 1f)
+
+                alwaysUnlocked = true
             }
         }
 
@@ -66,6 +68,8 @@ class ReBlocks : ContentList {
 
                 consumes.power(1f)
                 consumes.liquid(Liquids.water, 0.4f)
+
+                alwaysUnlocked = true
             }
         }
 
@@ -88,6 +92,8 @@ class ReBlocks : ContentList {
 
                 consumes.power(0.5f)
                 consumes.item(ReItems.snowball, 1)
+
+                alwaysUnlocked = true
             }
         }
 
@@ -97,6 +103,8 @@ class ReBlocks : ContentList {
 
                 update = true
                 health = 2400
+
+                alwaysUnlocked = true
             }
         }
 
@@ -106,6 +114,8 @@ class ReBlocks : ContentList {
 
                 update = true
                 health = 600
+
+                alwaysUnlocked = true
             }
         }
 
@@ -120,6 +130,8 @@ class ReBlocks : ContentList {
                 hasLiquids = false
                 liquidBoostIntensity = 1f
                 drawMineItem = false
+
+                alwaysUnlocked = true
             }
         }
 
@@ -142,6 +154,8 @@ class ReBlocks : ContentList {
                 inaccuracy = 30f
                 rotateSpeed = 12f
                 reloadTime = 1f
+
+                alwaysUnlocked = true
             }
         }
 
@@ -161,6 +175,8 @@ class ReBlocks : ContentList {
                 outputItem = ItemStack(Items.copper, 1)
 
                 consumes.item(Items.sand, 4)
+
+                alwaysUnlocked = true
             }
         }
 
@@ -184,11 +200,22 @@ class ReBlocks : ContentList {
                 consumes.power(0.5f)
                 consumes.item(Items.sporePod, 1)
                 consumes.liquid(Liquids.water, 0.2f)
+
+                alwaysUnlocked = true
             }
         }
 
         thorns = object : Thorns("thorns") {
+            init {
+                requirements(Category.effect, with(Items.scrap, 4))
 
+                hasShadow = false
+                health = 100
+                update = false
+                destructible = true
+                solid = false
+                targetable = false
+            }
         }
     }
 
