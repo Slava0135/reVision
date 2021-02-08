@@ -2,7 +2,7 @@ name: "revision"
 displayName: "reVision"
 author: "Slava0135"
 main: "revision.ReVision"
-description: "A Kotlin jar mod."
+description: "A new way forward in vanilla style"
 version: "7.0"
 minGameVersion: 120
 
