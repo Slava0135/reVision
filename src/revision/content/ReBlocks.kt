@@ -1,9 +1,10 @@
 package revision.content
 
-import mindustry.content.Fx.steam
+import mindustry.content.Fx.*
 import mindustry.content.Items
 import mindustry.content.Liquids
 import mindustry.ctype.ContentList
+import mindustry.gen.Sounds.door
 import mindustry.gen.Sounds.release
 import mindustry.type.Category
 import mindustry.type.ItemStack
@@ -14,6 +15,7 @@ import mindustry.world.blocks.defense.turrets.ItemTurret
 import mindustry.world.blocks.production.Drill
 import mindustry.world.blocks.production.GenericCrafter
 import revision.world.blocks.defense.ReWall
+import revision.world.blocks.defense.Thorns
 import revision.world.blocks.production.Freezer
 import revision.world.blocks.production.Heater
 
@@ -93,7 +95,7 @@ class ReBlocks : ContentList {
                     Items.silicon, ReBullets.siliconShredder,
                     ReItems.snowball, ReBullets.snowballShredder
                 )
-                
+
                 size = 1
                 health = 250
                 range = 100f
@@ -103,6 +105,52 @@ class ReBlocks : ContentList {
                 rotateSpeed = 12f
                 reloadTime = 1f
             }
+        }
+
+        sieve = object : GenericCrafter("sieve") {
+            init {
+                requirements(Category.crafting, with(Items.copper, 35))
+
+                size = 1
+                health = 60
+                craftTime = 60f
+                craftEffect = pulverize
+
+                hasPower = false
+                hasLiquids = false
+                hasItems = true
+
+                outputItem = ItemStack(Items.copper, 1)
+
+                consumes.item(Items.sand, 4)
+            }
+        }
+
+        tainter = object : GenericCrafter("tainter") {
+            init {
+                requirements(Category.crafting, with(Items.copper, 75, Items.lead, 50, Items.titanium, 50))
+
+                size = 2
+                health = 120
+                craftTime = 60f
+                liquidCapacity = 60f
+                ambientSound = door
+                craftEffect = pickup
+
+                hasPower = true
+                hasLiquids = true
+                hasItems = true
+
+                outputLiquid = LiquidStack(ReLiquids.pollutedWater, 12f)
+
+                consumes.power(0.5f)
+                consumes.item(Items.sporePod, 1)
+                consumes.liquid(Liquids.water, 0.2f)
+            }
+        }
+
+        thorns = object : Thorns("thorns") {
+
         }
     }
 
