@@ -149,7 +149,6 @@ class ReBlocks : ContentList {
                 size = 1
                 health = 250
                 range = 100f
-                ammoUseEffect = null
                 maxAmmo = 30
                 inaccuracy = 30f
                 rotateSpeed = 12f
