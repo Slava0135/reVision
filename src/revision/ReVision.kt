@@ -13,7 +13,6 @@ class ReVision : Mod() {
         ReItems().load()
         ReBullets().load()
         ReBlocks().load()
-        ReTechTree().load()
 
         (Blocks.darksandTaintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
         (Blocks.taintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
