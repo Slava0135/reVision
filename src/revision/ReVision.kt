@@ -29,6 +29,6 @@ class ReVision : Mod() {
         Blocks.scrapWallGigantic.alwaysUnlocked = true
 
         (Blocks.tsunami as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedTsunami)
-        (Blocks.wave as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedTsunami)
+        (Blocks.wave as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedWave)
     }
 }
