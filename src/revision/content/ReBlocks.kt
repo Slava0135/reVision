@@ -171,7 +171,7 @@ class ReBlocks : ContentList {
                 hasLiquids = false
                 hasItems = true
 
-                outputItem = ItemStack(Items.copper, 1)
+                outputItem = ItemStack(Items.scrap, 1)
 
                 consumes.item(Items.sand, 4)
 
