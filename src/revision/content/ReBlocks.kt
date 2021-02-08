@@ -49,25 +49,63 @@ class ReBlocks : ContentList {
 
         freezer = object : Freezer("freezer") {
             init {
+                requirements(Category.crafting, with(Items.copper, 125, Items.lead, 100, Items.graphite, 50, Items.metaglass, 50))
 
+                size = 3
+                health = 120
+                craftTime = 30f
+                liquidCapacity = 120f
+                craftEffect = pickup
+                ambientSound = release
+
+                hasPower = true
+                hasLiquids = true
+                hasItems = true
+
+                outputItem = ItemStack(ReItems.snowball, 3)
+
+                consumes.power(1f)
+                consumes.liquid(Liquids.water, 0.4f)
             }
         }
 
         heater = object : Heater("heater") {
             init {
+                requirements(Category.crafting, with(Items.copper, 75, Items.lead, 50, Items.metaglass, 50))
 
+                size = 2
+                health = 60
+                craftTime = 20f
+                liquidCapacity = 60f
+                craftEffect = steam
+                ambientSound = release
+
+                hasPower = true
+                hasLiquids = true
+                hasItems = true
+
+                outputLiquid = LiquidStack(Liquids.water, 4f)
+
+                consumes.power(0.5f)
+                consumes.item(ReItems.snowball, 1)
             }
         }
 
         largeReWall = object : ReWall("large-rewall") {
             init {
+                requirements(Category.defense, with(Items.silicon, 12, Items.lead, 8, Items.titanium, 4))
 
+                update = true
+                health = 2400
             }
         }
 
         reWall = object : ReWall("rewall") {
             init {
+                requirements(Category.defense, with(Items.silicon, 3, Items.lead, 2, Items.titanium, 1))
 
+                update = true
+                health = 600
             }
         }
 
