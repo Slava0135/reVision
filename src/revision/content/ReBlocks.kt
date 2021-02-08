@@ -101,6 +101,7 @@ class ReBlocks : ContentList {
             init {
                 requirements(Category.defense, with(Items.silicon, 12, Items.lead, 8, Items.titanium, 4))
 
+                size = 2
                 update = true
                 health = 2400
 
@@ -112,6 +113,7 @@ class ReBlocks : ContentList {
             init {
                 requirements(Category.defense, with(Items.silicon, 3, Items.lead, 2, Items.titanium, 1))
 
+                size = 1
                 update = true
                 health = 600
 

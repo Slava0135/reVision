@@ -13,7 +13,7 @@ open class ReWall(name: String) : Wall(name) {
         override fun updateTile() {
             if (this.damaged() && timer.get(0, cooldown)) {
                 heal(maxHealth / fraction)
-                Fx.healBlockFull.at(x, y, Pal.heal)
+                Fx.healBlockFull.at(x, y, size.toFloat(), Pal.heal)
             }
         }
     }
