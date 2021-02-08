@@ -20,7 +20,7 @@ class ReBullets : ContentList {
                 height = 7f
                 shootEffect = shootSmall
                 smokeEffect = shootSmallSmoke
-                ammoMultiplier = 10f
+                ammoMultiplier = 5f
             }
         }
 
@@ -34,7 +34,7 @@ class ReBullets : ContentList {
                 statusDuration = 50f
                 shootEffect = shootSmall
                 smokeEffect = shootSmallSmoke
-                ammoMultiplier = 10f
+                ammoMultiplier = 5f
             }
         }
 
@@ -45,7 +45,7 @@ class ReBullets : ContentList {
                 shootEffect = shootSmall
                 smokeEffect = shootSmallSmoke
                 homingPower = 0.05f
-                ammoMultiplier = 10f
+                ammoMultiplier = 5f
             }
         }
 
@@ -59,7 +59,7 @@ class ReBullets : ContentList {
                 statusDuration = 50f
                 shootEffect = shootSmall
                 smokeEffect = shootSmallSmoke
-                ammoMultiplier = 10f
+                ammoMultiplier = 5f
             }
         }
 
