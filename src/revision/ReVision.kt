@@ -2,6 +2,7 @@ package revision
 
 import mindustry.content.Blocks
 import mindustry.mod.Mod
+import mindustry.world.blocks.defense.turrets.LiquidTurret
 import mindustry.world.blocks.environment.Floor
 import mindustry.world.meta.BuildVisibility
 import revision.content.ReBlocks
@@ -25,5 +26,8 @@ class ReVision : Mod() {
         Blocks.scrapWallHuge.buildVisibility = BuildVisibility.shown
         Blocks.scrapWallLarge.buildVisibility = BuildVisibility.shown
         Blocks.scrapWallGigantic.buildVisibility = BuildVisibility.shown
+
+        (Blocks.tsunami as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedTsunami)
+        (Blocks.wave as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedTsunami)
     }
 }

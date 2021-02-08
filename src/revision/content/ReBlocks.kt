@@ -86,6 +86,14 @@ class ReBlocks : ContentList {
         shredder = object : ItemTurret("shredder") {
             init {
                 requirements(Category.defense, with(Items.scrap, 35))
+
+                ammo(
+                    Items.scrap, ReBullets.scrapShredder,
+                    Items.coal, ReBullets.coalShredder,
+                    Items.silicon, ReBullets.siliconShredder,
+                    ReItems.snowball, ReBullets.snowballShredder
+                )
+                
                 size = 1
                 health = 250
                 range = 100f
