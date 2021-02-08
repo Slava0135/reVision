@@ -137,7 +137,7 @@ class ReBlocks : ContentList {
 
         shredder = object : ItemTurret("shredder") {
             init {
-                requirements(Category.defense, with(Items.scrap, 35))
+                requirements(Category.turret, with(Items.scrap, 35))
 
                 ammo(
                     Items.scrap, ReBullets.scrapShredder,
