@@ -2,7 +2,7 @@
 
 Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](https://github.com/Slava0135/reFine)
 
-# V8 NEXT GENERATION
+# V8 NEXT GENERATION - now on Kotlin!
 ## Additions
 #### Wind Turbines!
 * Primitive power generator. Efficency depends on amount of solid blocks around.
