@@ -3,6 +3,7 @@ package revision.world.blocks.power
 import arc.Core
 import arc.graphics.g2d.Draw
 import arc.graphics.g2d.Fill
+import arc.graphics.g2d.Lines
 import arc.graphics.g2d.TextureRegion
 import arc.struct.EnumSet
 import mindustry.Vars
@@ -26,7 +27,9 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
     }
 
     override fun drawPlace(x: Int, y: Int, rotation: Int, valid: Boolean) {
-        Drawf.square(x * Vars.tilesize.toFloat(), y * Vars.tilesize.toFloat(), (size + 4).toFloat() * Vars.tilesize, Pal.placing)
+        Draw.color(Pal.placing)
+        Lines.stroke(size.toFloat())
+        Lines.square((x + offset) * Vars.tilesize.toFloat(), (y + offset) * Vars.tilesize.toFloat(), (size + 4).toFloat() * Vars.tilesize)
     }
 
     override fun setStats() {
