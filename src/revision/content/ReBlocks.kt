@@ -16,6 +16,7 @@ import mindustry.world.blocks.production.Drill
 import mindustry.world.blocks.production.GenericCrafter
 import revision.world.blocks.defense.ReWall
 import revision.world.blocks.defense.Thorns
+import revision.world.blocks.power.WindTurbine
 import revision.world.blocks.production.Freezer
 import revision.world.blocks.production.Heater
 
@@ -212,6 +213,13 @@ class ReBlocks : ContentList {
                 targetable = false
             }
         }
+
+        windTurbine = object : WindTurbine("wind-turbine") {
+            init {
+                requirements(Category.power, with(Items.copper, 125, Items.lead, 100, Items.graphite, 75))
+                powerProduction = 1f
+            }
+        }
     }
 
     companion object {
@@ -225,5 +233,6 @@ class ReBlocks : ContentList {
         var sieve: Block? = null
         var tainter: Block? = null
         var thorns: Block? = null
+        var windTurbine: Block? = null
     }
 }
