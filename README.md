@@ -2,13 +2,15 @@
 
 Also check out [routorio](https://github.com/DeltaNedas/routorio)
 
-# V6 - WINTER UPDATE
+# V8 NEXT GENERATION
 ## Additions
-#### Snowballs!
+#### Wind Turbines!
+* Primitive power generator. Efficency depends on amount of solid blocks around.
+#### Snowballs
 * Mine snow or ice snow to get them. Use as ammo in Shredder and a little bit more!
-#### Freezer!
+#### Freezer
 * Make snowballs from water
-#### Heater!
+#### Heater
 * Melt snowballs back into water
 #### Buildable scrap walls
 #### Scraper
