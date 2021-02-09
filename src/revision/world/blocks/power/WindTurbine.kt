@@ -7,6 +7,7 @@ import arc.graphics.g2d.Lines
 import arc.graphics.g2d.TextureRegion
 import arc.struct.EnumSet
 import mindustry.Vars
+import mindustry.Vars.tilesize
 import mindustry.graphics.Drawf
 import mindustry.graphics.Pal
 import mindustry.world.Edges
@@ -29,7 +30,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
     override fun drawPlace(x: Int, y: Int, rotation: Int, valid: Boolean) {
         Draw.color(Pal.placing)
         Lines.stroke(size.toFloat())
-        Lines.square((x + offset) * Vars.tilesize.toFloat(), (y + offset) * Vars.tilesize.toFloat(), (size + 4).toFloat() * Vars.tilesize)
+        Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 4).toFloat())
     }
 
     override fun setStats() {
@@ -58,6 +59,10 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
             Draw.rect(region, x, y)
             super.drawCracks()
             Draw.rect(fanRegion, x, y, time)
+        }
+
+        override fun drawSelect() {
+            drawPlace(tileX(), tileY(), 0, true)
         }
     }
 }
