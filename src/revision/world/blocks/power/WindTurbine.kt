@@ -43,7 +43,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
             val occupied = edges.count {
                 Vars.world.tile(tile.x + it.x, tile.y + it.y).solid()
             }
-            productionEfficiency = if (enabled) occupied.toFloat() / base else 0f
+            productionEfficiency = if (enabled) 1f - occupied.toFloat() / base else 0f
             time += delta() * productionEfficiency
         }
 
