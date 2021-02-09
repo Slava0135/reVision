@@ -28,7 +28,6 @@ class ReBlocks : ContentList {
                 requirements(Category.crafting, with(Items.copper, 125, Items.lead, 100, Items.graphite, 50, Items.titanium, 50))
 
                 size = 3
-                health = 180
                 craftTime = 60f
                 liquidCapacity = 240f
                 craftEffect = steam
@@ -54,7 +53,6 @@ class ReBlocks : ContentList {
                 requirements(Category.crafting, with(Items.copper, 125, Items.lead, 100, Items.graphite, 50, Items.metaglass, 50))
 
                 size = 3
-                health = 120
                 craftTime = 30f
                 liquidCapacity = 120f
                 craftEffect = pickup
@@ -78,7 +76,6 @@ class ReBlocks : ContentList {
                 requirements(Category.crafting, with(Items.copper, 75, Items.lead, 50, Items.metaglass, 50))
 
                 size = 2
-                health = 60
                 craftTime = 20f
                 liquidCapacity = 60f
                 craftEffect = steam
@@ -126,7 +123,6 @@ class ReBlocks : ContentList {
                 requirements(Category.production, with(Items.scrap, 4))
 
                 size = 1
-                health = 40
                 tier = 2
                 drillTime = 600f
                 hasLiquids = false
@@ -165,7 +161,6 @@ class ReBlocks : ContentList {
                 requirements(Category.crafting, with(Items.copper, 35))
 
                 size = 1
-                health = 60
                 craftTime = 60f
                 craftEffect = pulverize
 
@@ -186,7 +181,6 @@ class ReBlocks : ContentList {
                 requirements(Category.crafting, with(Items.copper, 75, Items.lead, 50, Items.titanium, 50))
 
                 size = 2
-                health = 120
                 craftTime = 60f
                 liquidCapacity = 60f
                 ambientSound = door
