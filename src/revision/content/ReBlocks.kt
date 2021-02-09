@@ -216,7 +216,7 @@ class ReBlocks : ContentList {
 
         windTurbine = object : WindTurbine("wind-turbine") {
             init {
-                requirements(Category.power, with(Items.copper, 125, Items.lead, 100, Items.graphite, 75))
+                requirements(Category.power, with(Items.copper, 150, Items.lead, 100, Items.graphite, 100))
                 size = 2
                 powerProduction = 1f
             }
