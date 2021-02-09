@@ -1,6 +1,6 @@
 ![logo](assets/preview.png)
 
-Also check out [routorio](https://github.com/DeltaNedas/routorio)
+Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](https://github.com/Slava0135/reFine)
 
 # V8 NEXT GENERATION
 ## Additions
