@@ -17,10 +17,12 @@ import mindustry.world.meta.StatUnit
 open class WindTurbine(name: String) : PowerGenerator(name) {
 
     var fanRegion: TextureRegion? = null
+    var topRegion: TextureRegion? = null
 
     override fun load() {
         super.load()
         fanRegion = Core.atlas.find("$name-fan")
+        topRegion = Core.atlas.find("$name-top")
     }
 
     init {
@@ -37,6 +39,10 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
         super.setStats()
         stats.remove(generationType)
         stats.add(generationType, powerProduction * 60f, StatUnit.powerSecond)
+    }
+
+    override fun icons(): Array<TextureRegion> {
+        return arrayOf(region, fanRegion!!, topRegion!!)
     }
 
     inner class WindTurbineBuild : GeneratorBuild() {
@@ -59,6 +65,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
             Draw.rect(region, x, y)
             super.drawCracks()
             Draw.rect(fanRegion, x, y, time)
+            Draw.rect(topRegion, x, y)
         }
 
         override fun drawSelect() {

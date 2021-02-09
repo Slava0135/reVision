@@ -18,6 +18,10 @@ open class Heater(name: String) : GenericCrafter(name) {
         topRegion = Core.atlas.find("$name-top")
     }
 
+    override fun icons(): Array<TextureRegion> {
+        return arrayOf(region, topRegion!!)
+    }
+
     inner class HeaterBuild : GenericCrafterBuild() {
 
         override fun draw() {

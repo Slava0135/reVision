@@ -21,6 +21,10 @@ open class Freezer(name: String) : GenericCrafter(name) {
         topRegion = Core.atlas.find("$name-top")
     }
 
+    override fun icons(): Array<TextureRegion> {
+        return arrayOf(region, topRegion!!)
+    }
+
     inner class FreezerBuild : GenericCrafterBuild() {
 
         override fun draw() {
