@@ -211,6 +211,8 @@ class ReBlocks : ContentList {
                 destructible = true
                 solid = false
                 targetable = false
+
+                alwaysUnlocked = true
             }
         }
 
@@ -219,6 +221,8 @@ class ReBlocks : ContentList {
                 requirements(Category.power, with(Items.copper, 35, Items.lead, 35, Items.graphite, 35))
                 size = 2
                 powerProduction = 0.5f
+
+                alwaysUnlocked = true
             }
         }
     }
