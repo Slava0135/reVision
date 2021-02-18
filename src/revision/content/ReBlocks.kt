@@ -19,6 +19,7 @@ import revision.world.blocks.defense.Thorns
 import revision.world.blocks.power.WindTurbine
 import revision.world.blocks.production.Freezer
 import revision.world.blocks.production.Heater
+import revision.world.blocks.units.Collector
 
 class ReBlocks : ContentList {
 
@@ -225,19 +226,31 @@ class ReBlocks : ContentList {
                 alwaysUnlocked = true
             }
         }
+
+        collector = object : Collector("collector") {
+            init {
+                requirements(Category.units, with(Items.titanium, 100))
+                hasItems = true
+                size = 2
+                itemCapacity = 300
+
+                alwaysUnlocked = true
+            }
+        }
     }
 
     companion object {
-        var filter: Block? = null
-        var freezer: Block? = null
-        var heater: Block? = null
-        var largeReWall: Block? = null
-        var reWall: Block? = null
-        var scraper: Block? = null
-        var shredder: Block? = null
-        var sieve: Block? = null
-        var tainter: Block? = null
-        var thorns: Block? = null
-        var windTurbine: Block? = null
+        lateinit var filter: Block
+        lateinit var freezer: Block
+        lateinit var heater: Block
+        lateinit var largeReWall: Block
+        lateinit var reWall: Block
+        lateinit var scraper: Block
+        lateinit var shredder: Block
+        lateinit var sieve: Block
+        lateinit var tainter: Block
+        lateinit var thorns: Block
+        lateinit var windTurbine: Block
+        lateinit var collector: Block
     }
 }
