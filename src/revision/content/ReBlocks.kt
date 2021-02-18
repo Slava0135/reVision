@@ -229,7 +229,7 @@ class ReBlocks : ContentList {
 
         collector = object : Collector("collector") {
             init {
-                requirements(Category.units, with(Items.titanium, 100))
+                requirements(Category.effect, with(Items.titanium, 100))
                 hasItems = true
                 size = 2
                 itemCapacity = 300

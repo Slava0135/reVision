@@ -18,7 +18,6 @@ import mindustry.world.Block
 open class Collector(name: String) : Block(name) {
 
     val existing = Seq<Building>()
-    val loaded = Seq<Building>()
 
     val range = 100f
 
@@ -40,8 +39,6 @@ open class Collector(name: String) : Block(name) {
 
         Events.on(EventType.WorldLoadEvent::class.java) {
             existing.clear()
-            existing.addAll(loaded)
-            loaded.clear()
         }
     }
 
@@ -73,7 +70,7 @@ open class Collector(name: String) : Block(name) {
 
         override fun read(read: Reads?) {
             super.read(read)
-            loaded.add(this)
+            existing.add(this)
         }
     }
 }
