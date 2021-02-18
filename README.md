@@ -2,9 +2,11 @@
 
 Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](https://github.com/Slava0135/reFine)
 
-# V8 NEXT GENERATION - now on Kotlin!
+# V9 DISINTEGRATING
 ## Additions
-#### Wind Turbines!
+#### Collector!
+* Get scrap by killing units.
+#### Wind Turbines
 * Primitive power generator. Efficency depends on amount of solid blocks around.
 #### Snowballs
 * Mine snow or ice snow to get them. Use as ammo in Shredder and a little bit more!
