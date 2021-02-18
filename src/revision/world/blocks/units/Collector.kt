@@ -37,7 +37,7 @@ open class Collector(name: String) : Block(name) {
             }
         }
 
-        Events.on(EventType.WorldLoadEvent::class.java) {
+        Events.on(EventType.ResetEvent::class.java) {
             existing.clear()
         }
     }
