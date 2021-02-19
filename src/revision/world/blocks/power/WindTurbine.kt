@@ -51,16 +51,16 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
         var count = 0
 
         override fun updateTile() {
-            count = count++ % 60
-            if (count == 0) {
+            count = (count + 1) % 60
+            if (count == 1) {
                 val edges = Edges.getEdges(size) + Edges.getEdges(size + 2)
                 val base = edges.size
                 val occupied = edges.count {
                     Vars.world.tile(tile.x + it.x, tile.y + it.y).solid()
                 }
                 productionEfficiency = if (enabled) 1f - occupied.toFloat() / base else 0f
-                time += delta() * productionEfficiency
             }
+            time += delta() * productionEfficiency
         }
 
         override fun drawCracks() {}
