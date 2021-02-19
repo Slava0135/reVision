@@ -19,7 +19,7 @@ open class Collector(name: String) : Block(name) {
 
     val existing = Seq<Building>()
 
-    val range = 100f
+    val range = 120f
 
     init {
         solid = true

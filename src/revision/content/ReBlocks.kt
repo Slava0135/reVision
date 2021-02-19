@@ -66,7 +66,7 @@ class ReBlocks : ContentList {
 
                 outputItem = ItemStack(ReItems.snowball, 3)
 
-                consumes.power(1f)
+                consumes.power(0.5f)
                 consumes.liquid(Liquids.water, 0.4f)
 
                 alwaysUnlocked = true
@@ -89,7 +89,7 @@ class ReBlocks : ContentList {
 
                 outputLiquid = LiquidStack(Liquids.water, 4f)
 
-                consumes.power(0.5f)
+                consumes.power(0.25f)
                 consumes.item(ReItems.snowball, 1)
 
                 alwaysUnlocked = true

@@ -3,6 +3,6 @@ displayName: "reVision"
 author: "Slava0135"
 main: "revision.ReVision"
 description: "A new way forward in vanilla style"
-version: "9.0"
+version: "9.1"
 minGameVersion: 120
 
