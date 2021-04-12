@@ -9,7 +9,7 @@ Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](h
 #### Wind Turbines
 * Primitive power generator. Efficency depends on amount of solid blocks around.
 #### Snowballs
-* Mine snow or ice snow to get them. Use as ammo in Shredder and a little bit more!
+* Mine snow or ice snow to get them. Use as ammo in Shredder or melt to water!
 #### Freezer
 * Make snowballs from water
 #### Heater
