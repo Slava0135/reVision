@@ -73,7 +73,7 @@ open class MultiDrill(name: String) : Block(name) {
                 return true
             }
         }
-        for (edge in Edges.getEdges(size)) {
+        for (edge in Edges.getInsideEdges(size + 2)) {
             val other = Vars.world.tile(tile.x + edge.x, tile.y + edge.y)
             if (canMine(other)) {
                 return true
@@ -90,13 +90,13 @@ open class MultiDrill(name: String) : Block(name) {
 
         var off = 0
         for (ore in oreCount.keys()) {
-            val dx: Float = x * Vars.tilesize + offset - 4f
+            val dx: Float = x * Vars.tilesize + offset - 4
             val dy = y * Vars.tilesize + offset + size * Vars.tilesize / 2f + 5
             Draw.mixcol(Color.darkGray, 1f)
-            Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+            Draw.rect(ore.icon(Cicon.small), dx + off, dy - 1)
             Draw.reset()
-            Draw.rect(ore.icon(Cicon.small), dx, dy - 1)
-            off += 4
+            Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+            off += 16
         }
         Draw.reset()
 
@@ -114,7 +114,7 @@ open class MultiDrill(name: String) : Block(name) {
             }
         }
 
-        for (edge in Edges.getEdges(size)) {
+        for (edge in Edges.getInsideEdges(size + 2)) {
             val other = Vars.world.tile(tile.x + edge.x, tile.y + edge.y)
             if (canMine(other)) {
                 oreCount.increment(other.drop(), 0, 1)
@@ -143,19 +143,20 @@ open class MultiDrill(name: String) : Block(name) {
         override fun ambientVolume() = efficiency() * (size * size) / 4f
 
         override fun drawSelect() {
-            Draw.color(Pal.placing)
-            Lines.stroke(size.toFloat() / 2)
-            Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 2).toFloat())
             var off = 0
             for (ore in ores.keys()) {
                 val dx = x - size * Vars.tilesize / 2f
                 val dy = y + size * Vars.tilesize / 2f
                 Draw.mixcol(Color.darkGray, 1f)
-                Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+                Draw.rect(ore.icon(Cicon.small), dx + off, dy - 1)
                 Draw.reset()
-                Draw.rect(ore.icon(Cicon.small), dx, dy - 1)
-                off += 4
+                Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+                off += 16
             }
+            Draw.reset()
+            Draw.color(Pal.placing)
+            Lines.stroke(size.toFloat())
+            Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 2).toFloat())
         }
 
         override fun drawCracks() {}

@@ -32,7 +32,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
     override fun drawPlace(x: Int, y: Int, rotation: Int, valid: Boolean) {
         Draw.color(Pal.placing)
         Lines.stroke(size.toFloat())
-        Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 4).toFloat())
+        Lines.square(x * tilesize + offset, y * tilesize + offset, (tilesize / 2f) * (size + 4).toFloat())
     }
 
     override fun setStats() {
@@ -53,7 +53,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
         override fun updateTile() {
             count = (count + 1) % 60
             if (count == 1) {
-                val edges = Edges.getEdges(size) + Edges.getEdges(size + 2)
+                val edges = Edges.getInsideEdges(size + 2) + Edges.getInsideEdges(size + 4)
                 val base = edges.size
                 val occupied = edges.count {
                     Vars.world.tile(tile.x + it.x, tile.y + it.y).solid()
