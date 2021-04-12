@@ -7,6 +7,7 @@ import arc.graphics.g2d.Draw
 import arc.graphics.g2d.Lines
 import arc.graphics.g2d.TextureRegion
 import arc.math.Mathf
+import arc.math.geom.Point2
 import arc.struct.ObjectFloatMap
 import arc.struct.ObjectIntMap
 import arc.util.Time
@@ -90,13 +91,13 @@ open class MultiDrill(name: String) : Block(name) {
 
         var off = 0
         for (ore in oreCount.keys()) {
-            val dx: Float = x * Vars.tilesize + offset - 4
-            val dy = y * Vars.tilesize + offset + size * Vars.tilesize / 2f + 5
+            val dx: Float = x * Vars.tilesize + offset - 16
+            val dy = y * Vars.tilesize + offset + size * Vars.tilesize / 2f
             Draw.mixcol(Color.darkGray, 1f)
             Draw.rect(ore.icon(Cicon.small), dx + off, dy - 1)
             Draw.reset()
             Draw.rect(ore.icon(Cicon.small), dx + off, dy)
-            off += 16
+            off += 8
         }
         Draw.reset()
 
@@ -114,7 +115,9 @@ open class MultiDrill(name: String) : Block(name) {
             }
         }
 
-        for (edge in Edges.getInsideEdges(size + 2)) {
+        val edges = Edges.getEdges(size)
+        edges.plus(arrayOf(Point2(-1, -1), Point2(-1, size), Point2(size, -1), Point2(size, size)))
+        for (edge in edges) {
             val other = Vars.world.tile(tile.x + edge.x, tile.y + edge.y)
             if (canMine(other)) {
                 oreCount.increment(other.drop(), 0, 1)
@@ -151,12 +154,12 @@ open class MultiDrill(name: String) : Block(name) {
                 Draw.rect(ore.icon(Cicon.small), dx + off, dy - 1)
                 Draw.reset()
                 Draw.rect(ore.icon(Cicon.small), dx + off, dy)
-                off += 16
+                off += 8
             }
             Draw.reset()
             Draw.color(Pal.placing)
             Lines.stroke(size.toFloat())
-            Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 2).toFloat())
+            Lines.square(tileX() * Vars.tilesize + offset, tileY() * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 2).toFloat())
         }
 
         override fun drawCracks() {}
