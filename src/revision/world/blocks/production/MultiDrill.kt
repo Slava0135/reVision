@@ -118,7 +118,7 @@ open class MultiDrill(name: String) : Block(name) {
         val bot = (-((size - 1) / 2f)).toInt() - 1
         val top = ((size - 1) / 2f + 0.5f).toInt() + 1
 
-        val edges = Edges.getInsideEdges(size) + arrayOf(Point2(bot, bot), Point2(bot, top), Point2(top, top), Point2(top, bot))
+        val edges = Edges.getEdges(size) + arrayOf(Point2(bot, bot), Point2(bot, top), Point2(top, top), Point2(top, bot))
         for (edge in edges) {
             val other = Vars.world.tile(tile.x + edge.x, tile.y + edge.y)
             if (canMine(other)) {
