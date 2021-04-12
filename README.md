@@ -2,7 +2,7 @@
 
 Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](https://github.com/Slava0135/reFine)
 
-# V9 DISINTEGRATING
+# V10 MULTIMINING
 ## Additions
 #### Collector!
 * Get scrap by killing units.
