@@ -4,7 +4,9 @@ Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](h
 
 # V10 MULTIMINING
 ## Additions
-#### Collector!
+#### Multi Drill
+* Mine several resources at once with increased range
+#### Collector
 * Get scrap by killing units.
 #### Wind Turbines
 * Primitive power generator. Efficency depends on amount of solid blocks around.
