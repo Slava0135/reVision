@@ -88,19 +88,21 @@ open class MultiDrill(name: String) : Block(name) {
         val tile = Vars.world.tile(x, y) ?: return
         countOre(tile)
 
-        Draw.mixcol(Color.darkGray, 1f)
         var off = 0
         for (ore in oreCount.keys()) {
-            val dx: Float = x * Vars.tilesize + off - 4f
-            val dy = y * Vars.tilesize + off + size * Vars.tilesize / 2f + 5
+            val dx: Float = x * Vars.tilesize + offset - 4f
+            val dy = y * Vars.tilesize + offset + size * Vars.tilesize / 2f + 5
+            Draw.mixcol(Color.darkGray, 1f)
             Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+            Draw.reset()
+            Draw.rect(ore.icon(Cicon.small), dx, dy - 1)
             off += 4
         }
-        Draw.color()
+        Draw.reset()
 
         Draw.color(Pal.placing)
-        Lines.stroke(size.toFloat())
-        Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 4).toFloat())
+        Lines.stroke(size.toFloat() / 2)
+        Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 2).toFloat())
     }
 
     fun countOre(tile: Tile) {
@@ -141,12 +143,17 @@ open class MultiDrill(name: String) : Block(name) {
         override fun ambientVolume() = efficiency() * (size * size) / 4f
 
         override fun drawSelect() {
+            Draw.color(Pal.placing)
+            Lines.stroke(size.toFloat() / 2)
+            Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 2).toFloat())
             var off = 0
             for (ore in ores.keys()) {
                 val dx = x - size * Vars.tilesize / 2f
                 val dy = y + size * Vars.tilesize / 2f
                 Draw.mixcol(Color.darkGray, 1f)
                 Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+                Draw.reset()
+                Draw.rect(ore.icon(Cicon.small), dx, dy - 1)
                 off += 4
             }
         }
