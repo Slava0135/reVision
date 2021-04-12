@@ -5,6 +5,7 @@ import arc.graphics.g2d.Draw
 import arc.graphics.g2d.Fill
 import arc.graphics.g2d.Lines
 import arc.graphics.g2d.TextureRegion
+import arc.math.geom.Point2
 import arc.struct.EnumSet
 import mindustry.Vars
 import mindustry.Vars.tilesize
@@ -53,7 +54,11 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
         override fun updateTile() {
             count = (count + 1) % 60
             if (count == 1) {
-                val edges = Edges.getEdges(size) + Edges.getEdges(size + 2)
+                val bot = (-((size - 1) / 2f)).toInt() - 1
+                val top = ((size - 1) / 2f + 0.5f).toInt() + 1
+                val edges = Edges.getEdges(size) + Edges.getEdges(size + 2) +
+                        arrayOf(Point2(bot, bot), Point2(bot, top), Point2(top, top), Point2(top, bot)) +
+                        arrayOf(Point2(bot-1, bot-1), Point2(bot-1, top+1), Point2(top+1, top+1), Point2(top+1, bot-1))
                 val base = edges.size
                 val occupied = edges.count {
                     Vars.world.tile(tile.x + it.x, tile.y + it.y).solid()

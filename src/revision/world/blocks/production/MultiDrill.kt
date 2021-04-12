@@ -115,8 +115,10 @@ open class MultiDrill(name: String) : Block(name) {
             }
         }
 
-        val edges = Edges.getEdges(size)
-        edges.plus(arrayOf(Point2(-1, -1), Point2(-1, size), Point2(size, -1), Point2(size, size)))
+        val bot = (-((size - 1) / 2f)).toInt() - 1
+        val top = ((size - 1) / 2f + 0.5f).toInt() + 1
+
+        val edges = Edges.getInsideEdges(size) + arrayOf(Point2(bot, bot), Point2(bot, top), Point2(top, top), Point2(top, bot))
         for (edge in edges) {
             val other = Vars.world.tile(tile.x + edge.x, tile.y + edge.y)
             if (canMine(other)) {
@@ -158,7 +160,7 @@ open class MultiDrill(name: String) : Block(name) {
             }
             Draw.reset()
             Draw.color(Pal.placing)
-            Lines.stroke(size.toFloat())
+            Lines.stroke(size.toFloat() / 2)
             Lines.square(tileX() * Vars.tilesize + offset, tileY() * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 2).toFloat())
         }
 
