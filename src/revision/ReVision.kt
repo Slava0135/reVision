@@ -1,8 +1,6 @@
 package revision
 
-import arc.Events
 import mindustry.content.Blocks
-import mindustry.game.EventType
 import mindustry.mod.Mod
 import mindustry.world.blocks.defense.turrets.LiquidTurret
 import mindustry.world.blocks.environment.Floor

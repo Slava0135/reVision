@@ -1,5 +1,6 @@
 package revision.content
 
+import mindustry.content.Fx
 import mindustry.content.Fx.*
 import mindustry.content.Items
 import mindustry.content.Liquids
@@ -19,6 +20,7 @@ import revision.world.blocks.defense.Thorns
 import revision.world.blocks.power.WindTurbine
 import revision.world.blocks.production.Freezer
 import revision.world.blocks.production.Heater
+import revision.world.blocks.production.MultiDrill
 import revision.world.blocks.units.Collector
 
 class ReBlocks : ContentList {
@@ -237,6 +239,17 @@ class ReBlocks : ContentList {
                 alwaysUnlocked = true
             }
         }
+
+        multiDrill = object : MultiDrill("multi-drill") {
+            init {
+                requirements(Category.production, with(Items.copper, 130, Items.silicon, 120, Items.graphite, 100, Items.phaseFabric, 75))
+                size = 4
+                hasPower = true
+                consumes.power(6f)
+                consumes.liquid(Liquids.water, 0.2f).boost()
+                alwaysUnlocked = true
+            }
+        }
     }
 
     companion object {
@@ -252,5 +265,6 @@ class ReBlocks : ContentList {
         lateinit var thorns: Block
         lateinit var windTurbine: Block
         lateinit var collector: Block
+        lateinit var multiDrill: Block
     }
 }
