@@ -1,6 +1,7 @@
 package revision.world.blocks.production
 
 import arc.Core
+import arc.graphics.Blending
 import arc.graphics.Color
 import arc.graphics.g2d.Draw
 import arc.graphics.g2d.Lines
@@ -8,6 +9,7 @@ import arc.graphics.g2d.TextureRegion
 import arc.math.Mathf
 import arc.struct.ObjectFloatMap
 import arc.struct.ObjectIntMap
+import arc.util.Time
 import mindustry.Vars
 import mindustry.content.Fx
 import mindustry.game.Team
@@ -183,6 +185,9 @@ open class MultiDrill(name: String) : Block(name) {
                     oreProgress.increment(ore.key, 0f, delta() * ore.value * speed * warmup)
                 }
 
+                if (Mathf.chanceDelta((updateEffectChance * warmup).toDouble())) {
+                    updateEffect.at(x + Mathf.range(size * 2f), y + Mathf.range(size * 2f))
+                }
             } else {
                 warmup = Mathf.lerpDelta(warmup, 0f, warmupSpeed)
                 return
@@ -193,8 +198,28 @@ open class MultiDrill(name: String) : Block(name) {
                 if (oreProgress.get(ore.key, 0f) >= delay && items.get(ore.key) < itemCapacity) {
                     offload(ore.key)
                     oreProgress.increment(ore.key, 0f, -delay)
+                    drillEffect.at(x + Mathf.range(size), y + Mathf.range(size), ore.key.color);
                 }
             }
+        }
+
+        override fun draw() {
+            val s = 0.3f
+            val ts = 0.6f
+
+            Draw.rect(region, x, y)
+            super.drawCracks()
+
+            Draw.color(heatColor)
+            Draw.alpha(warmup * ts * (1f - s + Mathf.absin(Time.time, 3f, s)))
+            Draw.blend(Blending.additive)
+            Draw.rect(rimRegion, x, y)
+            Draw.blend()
+            Draw.color()
+
+            Draw.rect(rotatorRegion, x, y, timeDrilled * rotateSpeed)
+
+            Draw.rect(topRegion, x, y)
         }
     }
 }
