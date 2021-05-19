@@ -2,7 +2,7 @@ name: "revision"
 displayName: "reVision"
 author: "Slava0135"
 main: "revision.ReVision"
-description: "Trying to be different"
+description: "The other way around"
 version: "11"
 minGameVersion: 120
 

@@ -252,24 +252,24 @@ class ReBlocks : ContentList {
             }
         }
 
-        coalLiquidizer = object : GenericCrafter("coal-liquidizer") {
+        coalLiquefier = object : GenericCrafter("coal-liquefier") {
             init {
-                requirements(Category.production, with(Items.copper, 150, Items.graphite, 175, Items.lead, 115, Items.thorium, 115, Items.silicon, 75))
+                requirements(Category.crafting, with(Items.copper, 150, Items.graphite, 175, Items.lead, 115, Items.thorium, 115, Items.silicon, 75))
                 size = 3
                 craftTime = 60f
                 liquidCapacity = 240f
                 craftEffect = Fx.steam
                 ambientSound = release
 
-                outputLiquid = LiquidStack(Liquids.oil, 12f)
+                outputLiquid = LiquidStack(Liquids.oil, 15f)
 
                 hasPower = true
                 hasLiquids = true
                 hasItems = true
 
                 consumes.power(4f)
-                consumes.item(Items.coal, 4)
-                consumes.liquid(Liquids.water, 0.2f)
+                consumes.item(Items.coal, 5)
+                consumes.liquid(Liquids.water, 0.25f)
 
                 alwaysUnlocked = true
             }
@@ -290,6 +290,6 @@ class ReBlocks : ContentList {
         lateinit var windTurbine: Block
         lateinit var collector: Block
         lateinit var multiDrill: Block
-        lateinit var coalLiquidizer: Block
+        lateinit var coalLiquefier: Block
     }
 }

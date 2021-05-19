@@ -2,16 +2,18 @@
 
 Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](https://github.com/Slava0135/reFine)
 
-# V10 MULTIMINING
+# V11 LIQUEFACTION
 ## Additions
+#### Coal Liquefier!
+* Liquefies coal to oil
 #### Multi Drill
 * Mine several resources at once with increased range
 #### Collector
 * Get scrap by killing units.
 #### Wind Turbines
-* Primitive power generator. Efficency depends on amount of solid blocks around.
+* Primitive power generator. Efficiency depends on amount of solid blocks around.
 #### Snowballs
-* Mine snow or ice snow to get them. Use as ammo in Shredder or melt to water!
+* Mine snow or ice snow to get them. Use as ammo in Shredder or melt it back to water!
 #### Freezer
 * Make snowballs from water
 #### Heater
@@ -20,7 +22,7 @@ Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](h
 #### Scraper
 * Small drill made out of scrap.
 #### Shredder
-* Small turret made out of scrap. Immersive firerate and inaccuracy.
+* Small turret made out of scrap. Immersive fire rate and inaccuracy.
 #### Sieve
 * Processes sand and outputs scrap.
 #### Filter
