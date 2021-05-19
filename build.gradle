@@ -6,7 +6,7 @@ buildscript{
     }
 
     ext{
-        kotlinVersion = "1.4.32"
+        kotlinVersion = "1.5.0"
         //the build number that this mod is made for
         mindustryVersion = 'v126'
         //version of SDK you will be using

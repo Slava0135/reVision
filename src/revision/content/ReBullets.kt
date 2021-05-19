@@ -87,11 +87,11 @@ class ReBullets : ContentList {
     }
 
     companion object {
-        var scrapShredder: BulletType? = null
-        var coalShredder: BulletType? = null
-        var siliconShredder: BulletType? = null
-        var snowballShredder: BulletType? = null
-        var pollutedTsunami: BulletType? = null
-        var pollutedWave: BulletType? = null
+        lateinit var scrapShredder: BulletType
+        lateinit var coalShredder: BulletType
+        lateinit var siliconShredder: BulletType
+        lateinit var snowballShredder: BulletType
+        lateinit var pollutedTsunami: BulletType
+        lateinit var pollutedWave: BulletType
     }
 }

@@ -15,6 +15,6 @@ class ReItems : ContentList {
     }
 
     companion object {
-        var snowball: Item? = null
+        lateinit var snowball: Item
     }
 }

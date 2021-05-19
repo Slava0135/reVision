@@ -1,7 +1,6 @@
 package revision.content
 
 import mindustry.content.Fx
-import mindustry.content.Fx.*
 import mindustry.content.Items
 import mindustry.content.Liquids
 import mindustry.ctype.ContentList
@@ -34,7 +33,7 @@ class ReBlocks : ContentList {
                 size = 3
                 craftTime = 60f
                 liquidCapacity = 240f
-                craftEffect = steam
+                craftEffect = Fx.steam
                 ambientSound = release
 
                 hasPower = true
@@ -59,7 +58,7 @@ class ReBlocks : ContentList {
                 size = 3
                 craftTime = 30f
                 liquidCapacity = 120f
-                craftEffect = pickup
+                craftEffect = Fx.pickup
                 ambientSound = release
 
                 hasPower = true
@@ -82,7 +81,7 @@ class ReBlocks : ContentList {
                 size = 2
                 craftTime = 20f
                 liquidCapacity = 60f
-                craftEffect = steam
+                craftEffect = Fx.steam
                 ambientSound = release
 
                 hasPower = true
@@ -166,7 +165,7 @@ class ReBlocks : ContentList {
 
                 size = 1
                 craftTime = 60f
-                craftEffect = pulverize
+                craftEffect = Fx.pulverize
 
                 hasPower = false
                 hasLiquids = false
@@ -188,7 +187,7 @@ class ReBlocks : ContentList {
                 craftTime = 60f
                 liquidCapacity = 60f
                 ambientSound = door
-                craftEffect = pickup
+                craftEffect = Fx.pickup
 
                 hasPower = true
                 hasLiquids = true
@@ -250,6 +249,49 @@ class ReBlocks : ContentList {
                 alwaysUnlocked = true
             }
         }
+
+        electricBoiler = object : GenericCrafter("electric-boiler") {
+            init {
+                requirements(Category.crafting, with(Items.lead, 35, Items.silicon, 30))
+                size = 2
+                craftTime = 60f
+                liquidCapacity = 60f
+                health = 320
+                craftEffect = Fx.steam
+
+                outputLiquid = LiquidStack(ReLiquids.steam, 6f)
+
+                hasLiquids = true
+                hasPower = true
+
+                consumes.power(1f)
+
+                alwaysUnlocked = true
+            }
+        }
+
+        coalLiquidizer = object : GenericCrafter("coal-liquidizer") {
+            init {
+                requirements(Category.production, with(Items.copper, 150, Items.graphite, 175, Items.lead, 115, Items.thorium, 115, Items.silicon, 75))
+                size = 3
+                craftTime = 60f
+                liquidCapacity = 240f
+                craftEffect = Fx.steam
+                ambientSound = release
+
+                outputLiquid = LiquidStack(Liquids.oil, 12f)
+
+                hasPower = true
+                hasLiquids = true
+                hasItems = true
+
+                consumes.power(1f)
+                consumes.item(Items.coal, 4)
+                consumes.liquid(ReLiquids.steam, 0.2f)
+
+                alwaysUnlocked = true
+            }
+        }
     }
 
     companion object {
@@ -266,5 +308,9 @@ class ReBlocks : ContentList {
         lateinit var windTurbine: Block
         lateinit var collector: Block
         lateinit var multiDrill: Block
+        lateinit var coalLiquidizer: Block
+        lateinit var boiler: Block
+        lateinit var electricBoiler: Block
+        lateinit var jumpPad: Block
     }
 }

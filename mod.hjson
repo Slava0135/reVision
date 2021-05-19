@@ -3,6 +3,6 @@ displayName: "reVision"
 author: "Slava0135"
 main: "revision.ReVision"
 description: "Trying to be different"
-version: "10.1"
+version: "11"
 minGameVersion: 120
 
