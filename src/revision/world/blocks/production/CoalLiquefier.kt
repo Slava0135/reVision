@@ -1,6 +1,7 @@
 package revision.world.blocks.production
 
 import arc.Core
+import arc.graphics.g2d.Draw
 import arc.graphics.g2d.TextureRegion
 import mindustry.content.Liquids
 import mindustry.graphics.Drawf
@@ -26,6 +27,7 @@ open class CoalLiquefier(name: String) : GenericCrafter(name) {
         override fun draw() {
             super.draw()
             Drawf.liquid(liquidRegion, x, y, liquids.get(outputLiquid.liquid) / liquidCapacity, Liquids.oil.color)
+            Draw.rect(topRegion, x, y)
         }
 
     }
