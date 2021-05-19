@@ -34,7 +34,7 @@ class ReSearchTree : ContentList {
         }
 
         margeNode(oilExtractor) {
-            node(ReBlocks.coalLiquifier)
+            node(ReBlocks.coalLiquefier)
         }
 
         margeNode(mendProjector) {
