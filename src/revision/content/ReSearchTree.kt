@@ -2,7 +2,6 @@ package revision.content
 
 import arc.struct.Seq
 import mindustry.content.Blocks.*
-import mindustry.content.Items.*
 import mindustry.content.TechTree
 import mindustry.content.TechTree.TechNode
 import mindustry.ctype.ContentList
@@ -30,12 +29,12 @@ class ReSearchTree : ContentList {
             node(ReBlocks.filter)
         }
 
-        margeNode(graphite) {
+        margeNode(powerNode) {
             node(ReBlocks.windTurbine)
         }
 
         margeNode(oilExtractor) {
-            node(ReBlocks.coalLiquefier)
+            node(ReBlocks.coalLiquifier)
         }
 
         margeNode(mendProjector) {
@@ -57,6 +56,7 @@ class ReSearchTree : ContentList {
             node(ReBlocks.shredder)
             node(ReBlocks.thorns)
         }
+
     }
 
     companion object {

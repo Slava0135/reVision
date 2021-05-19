@@ -17,9 +17,7 @@ import mindustry.world.blocks.production.GenericCrafter
 import revision.world.blocks.defense.ReWall
 import revision.world.blocks.defense.Thorns
 import revision.world.blocks.power.WindTurbine
-import revision.world.blocks.production.Freezer
-import revision.world.blocks.production.Heater
-import revision.world.blocks.production.MultiDrill
+import revision.world.blocks.production.*
 import revision.world.blocks.units.Collector
 
 class ReBlocks : ContentList {
@@ -252,7 +250,7 @@ class ReBlocks : ContentList {
             }
         }
 
-        coalLiquefier = object : GenericCrafter("coal-liquefier") {
+        coalLiquefier = object : CoalLiquefier("coal-liquifier") {
             init {
                 requirements(Category.crafting, with(Items.copper, 150, Items.graphite, 175, Items.lead, 115, Items.thorium, 115, Items.silicon, 75))
                 size = 3
