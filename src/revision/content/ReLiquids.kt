@@ -16,19 +16,9 @@ class ReLiquids : ContentList {
                 color = Color.valueOf("645195")
             }
         }
-        steam = object : Liquid("steam") {
-            init {
-                temperature = 1f
-                viscosity = 1f
-                heatCapacity = 0f
-                effect = wet
-                color = Color.valueOf("FFFFFF")
-            }
-        }
     }
 
     companion object {
         lateinit var pollutedWater: Liquid
-        lateinit var steam: Liquid
     }
 }

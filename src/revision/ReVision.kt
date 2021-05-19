@@ -9,6 +9,10 @@ import revision.content.*
 
 class ReVision : Mod() {
 
+    override fun init() {
+
+    }
+
     override fun loadContent() {
         ReLiquids().load()
         ReItems().load()

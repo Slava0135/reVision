@@ -32,7 +32,7 @@ class ReBlocks : ContentList {
 
                 size = 3
                 craftTime = 60f
-                liquidCapacity = 240f
+                liquidCapacity = 120f
                 craftEffect = Fx.steam
                 ambientSound = release
 
@@ -244,27 +244,9 @@ class ReBlocks : ContentList {
                 requirements(Category.production, with(Items.copper, 130, Items.silicon, 120, Items.graphite, 100, Items.phaseFabric, 75))
                 size = 4
                 hasPower = true
+
                 consumes.power(6f)
                 consumes.liquid(Liquids.water, 0.2f).boost()
-                alwaysUnlocked = true
-            }
-        }
-
-        electricBoiler = object : GenericCrafter("electric-boiler") {
-            init {
-                requirements(Category.crafting, with(Items.lead, 35, Items.silicon, 30))
-                size = 2
-                craftTime = 60f
-                liquidCapacity = 60f
-                health = 320
-                craftEffect = Fx.steam
-
-                outputLiquid = LiquidStack(ReLiquids.steam, 6f)
-
-                hasLiquids = true
-                hasPower = true
-
-                consumes.power(1f)
 
                 alwaysUnlocked = true
             }
@@ -285,9 +267,9 @@ class ReBlocks : ContentList {
                 hasLiquids = true
                 hasItems = true
 
-                consumes.power(1f)
+                consumes.power(4f)
                 consumes.item(Items.coal, 4)
-                consumes.liquid(ReLiquids.steam, 0.2f)
+                consumes.liquid(Liquids.water, 0.2f)
 
                 alwaysUnlocked = true
             }
@@ -309,8 +291,5 @@ class ReBlocks : ContentList {
         lateinit var collector: Block
         lateinit var multiDrill: Block
         lateinit var coalLiquidizer: Block
-        lateinit var boiler: Block
-        lateinit var electricBoiler: Block
-        lateinit var jumpPad: Block
     }
 }
