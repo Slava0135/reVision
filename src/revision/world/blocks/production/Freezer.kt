@@ -12,8 +12,8 @@ import mindustry.world.consumers.ConsumeType
 
 open class Freezer(name: String) : GenericCrafter(name) {
 
-    var liquidRegion: TextureRegion? = null
-    var topRegion: TextureRegion? = null
+    lateinit var liquidRegion: TextureRegion
+    lateinit var topRegion: TextureRegion
 
     override fun load() {
         super.load()
@@ -22,7 +22,7 @@ open class Freezer(name: String) : GenericCrafter(name) {
     }
 
     override fun icons(): Array<TextureRegion> {
-        return arrayOf(region, topRegion!!)
+        return arrayOf(region, topRegion)
     }
 
     inner class FreezerBuild : GenericCrafterBuild() {

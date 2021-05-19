@@ -8,22 +8,24 @@ import mindustry.world.blocks.production.GenericCrafter
 
 open class CoalLiquefier(name: String) : GenericCrafter(name) {
 
-    var liquidRegion: TextureRegion? = null
+    lateinit var liquidRegion: TextureRegion
+    lateinit var topRegion: TextureRegion
 
     override fun load() {
         super.load()
         liquidRegion = Core.atlas.find("$name-liquid")
+        topRegion = Core.atlas.find("$name-top")
     }
 
     override fun icons(): Array<TextureRegion> {
-        return arrayOf(region)
+        return arrayOf(region, topRegion)
     }
 
     inner class CoalLiquefierBuild : GenericCrafterBuild() {
 
         override fun draw() {
             super.draw()
-            Drawf.liquid(liquidRegion, x, y, liquids.get(outputLiquid.liquid) / liquidCapacity, Liquids.water.color)
+            Drawf.liquid(liquidRegion, x, y, liquids.get(outputLiquid.liquid) / liquidCapacity, Liquids.oil.color)
         }
 
     }

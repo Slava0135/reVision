@@ -250,7 +250,7 @@ class ReBlocks : ContentList {
             }
         }
 
-        coalLiquefier = object : CoalLiquefier("coal-liquifier") {
+        coalLiquefier = object : CoalLiquefier("coal-liquefier") {
             init {
                 requirements(Category.crafting, with(Items.copper, 150, Items.graphite, 175, Items.lead, 115, Items.thorium, 115, Items.silicon, 75))
                 size = 3
