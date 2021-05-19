@@ -25,11 +25,8 @@ class ReSearchTree : ContentList {
             node(ReBlocks.heater)
         }
 
-        margeNode(sporePod) {
+        margeNode(cultivator) {
             node(ReBlocks.tainter)
-        }
-
-        margeNode(ReLiquids.pollutedWater) {
             node(ReBlocks.filter)
         }
 
@@ -51,10 +48,13 @@ class ReSearchTree : ContentList {
             node(ReBlocks.collector)
         }
 
-        margeNode(scrap) {
+        margeNode(mechanicalDrill) {
             node(ReBlocks.scraper)
-            node(ReBlocks.shredder)
             node(ReBlocks.sieve)
+        }
+
+        margeNode(duo) {
+            node(ReBlocks.shredder)
             node(ReBlocks.thorns)
         }
     }
