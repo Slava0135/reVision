@@ -15,6 +15,16 @@ class ReSearchTree : ContentList {
 
     override fun load() {
 
+        margeNode(ReBlocks.shredder) {
+            node(scrapWall) {
+                node(scrapWallLarge) {
+                    node(scrapWallHuge) {
+                        node(scrapWallGigantic)
+                    }
+                }
+            }
+        }
+
         margeNode(blastDrill) {
             node(ReBlocks.multiDrill)
         }

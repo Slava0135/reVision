@@ -44,8 +44,6 @@ class ReBlocks : ContentList {
                 consumes.power(1f)
                 consumes.item(Items.coal, 2)
                 consumes.liquid(ReLiquids.pollutedWater, 1f)
-
-                alwaysUnlocked = true
             }
         }
 
@@ -67,8 +65,6 @@ class ReBlocks : ContentList {
 
                 consumes.power(0.5f)
                 consumes.liquid(Liquids.water, 0.4f)
-
-                alwaysUnlocked = true
             }
         }
 
@@ -90,8 +86,6 @@ class ReBlocks : ContentList {
 
                 consumes.power(0.25f)
                 consumes.item(ReItems.snowball, 1)
-
-                alwaysUnlocked = true
             }
         }
 
@@ -102,8 +96,6 @@ class ReBlocks : ContentList {
                 size = 2
                 update = true
                 health = 2400
-
-                alwaysUnlocked = true
             }
         }
 
@@ -114,8 +106,6 @@ class ReBlocks : ContentList {
                 size = 1
                 update = true
                 health = 600
-
-                alwaysUnlocked = true
             }
         }
 
@@ -129,8 +119,6 @@ class ReBlocks : ContentList {
                 hasLiquids = false
                 liquidBoostIntensity = 1f
                 drawMineItem = false
-
-                alwaysUnlocked = true
             }
         }
 
@@ -152,8 +140,6 @@ class ReBlocks : ContentList {
                 inaccuracy = 30f
                 rotateSpeed = 12f
                 reloadTime = 1f
-
-                alwaysUnlocked = true
             }
         }
 
@@ -172,8 +158,6 @@ class ReBlocks : ContentList {
                 outputItem = ItemStack(Items.scrap, 1)
 
                 consumes.item(Items.sand, 4)
-
-                alwaysUnlocked = true
             }
         }
 
@@ -196,8 +180,6 @@ class ReBlocks : ContentList {
                 consumes.power(0.5f)
                 consumes.item(Items.sporePod, 1)
                 consumes.liquid(Liquids.water, 0.2f)
-
-                alwaysUnlocked = true
             }
         }
 
@@ -211,8 +193,6 @@ class ReBlocks : ContentList {
                 destructible = true
                 solid = false
                 targetable = false
-
-                alwaysUnlocked = true
             }
         }
 
@@ -221,8 +201,6 @@ class ReBlocks : ContentList {
                 requirements(Category.power, with(Items.copper, 35, Items.lead, 35, Items.graphite, 35))
                 size = 2
                 powerProduction = 0.5f
-
-                alwaysUnlocked = true
             }
         }
 
@@ -232,8 +210,6 @@ class ReBlocks : ContentList {
                 hasItems = true
                 size = 2
                 itemCapacity = 300
-
-                alwaysUnlocked = true
             }
         }
 
@@ -245,8 +221,6 @@ class ReBlocks : ContentList {
 
                 consumes.power(6f)
                 consumes.liquid(Liquids.water, 0.2f).boost()
-
-                alwaysUnlocked = true
             }
         }
 
@@ -268,8 +242,6 @@ class ReBlocks : ContentList {
                 consumes.power(4f)
                 consumes.item(Items.coal, 5)
                 consumes.liquid(Liquids.water, 0.25f)
-
-                alwaysUnlocked = true
             }
         }
     }

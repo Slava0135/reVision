@@ -26,13 +26,9 @@ class ReVision : Mod() {
         (Blocks.snow as Floor).itemDrop = ReItems.snowball
 
         Blocks.scrapWall.buildVisibility = BuildVisibility.shown
-        Blocks.scrapWall.alwaysUnlocked = true
         Blocks.scrapWallHuge.buildVisibility = BuildVisibility.shown
-        Blocks.scrapWallHuge.alwaysUnlocked = true
         Blocks.scrapWallLarge.buildVisibility = BuildVisibility.shown
-        Blocks.scrapWallLarge.alwaysUnlocked = true
         Blocks.scrapWallGigantic.buildVisibility = BuildVisibility.shown
-        Blocks.scrapWallGigantic.alwaysUnlocked = true
 
         (Blocks.tsunami as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedTsunami)
         (Blocks.wave as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedWave)
