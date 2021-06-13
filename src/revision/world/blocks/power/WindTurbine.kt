@@ -33,7 +33,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
     override fun drawPlace(x: Int, y: Int, rotation: Int, valid: Boolean) {
         Draw.color(Pal.placing)
         Lines.stroke(size.toFloat())
-        Lines.square(x * Vars.tilesize + offset, y * Vars.tilesize + offset, (Vars.tilesize / 2f) * (size + 4).toFloat())
+        Lines.square(x * tilesize + offset, y * tilesize + offset, (tilesize / 2f) * (size + 4).toFloat())
     }
 
     override fun setStats() {

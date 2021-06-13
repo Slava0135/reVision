@@ -11,7 +11,7 @@ open class Thorns(name: String) : Block(name) {
     val timerDamage = timers++
 
     var cooldown = 30f
-    var damage = 4f
+    var damage = 8f
     var tileDamage = 25f
 
     inner class ThornsBuild : Building() {
