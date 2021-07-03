@@ -63,7 +63,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
     inner class HackBuild : BaseTurretBuild() {
 
-        var target: Teamc? = null
+        var target: Unit? = null
         var lastX = 0f; var lastY = 0f
         var progress = 0f
         var normalProgress = 0f
@@ -99,9 +99,9 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
         private fun findTarget() {
             target =
-                Units.bestTarget(team, x, y, range,
+                Units.bestEnemy(team, x, y, range,
                 { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) },
-                { true }, unitSort
+                unitSort
             )
         }
 
@@ -142,8 +142,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
         }
 
         private fun drawProgress() {
-            val hitSize = if (target is Building) (target as Building).hitSize() else (target as Unit).hitSize
-            Drawf.target(lastX, lastY, hitSize, normalProgress, team.color)
+            Drawf.target(lastX, lastY, (target as Unit).hitSize, normalProgress, team.color)
         }
 
         override fun write(write: Writes) {
