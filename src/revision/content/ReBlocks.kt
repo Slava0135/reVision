@@ -12,12 +12,17 @@ import mindustry.type.ItemStack.with
 import mindustry.type.LiquidStack
 import mindustry.world.Block
 import mindustry.world.blocks.defense.turrets.ItemTurret
+import mindustry.world.blocks.defense.turrets.TractorBeamTurret.TractorBeamBuild
 import mindustry.world.blocks.production.Drill
 import mindustry.world.blocks.production.GenericCrafter
+import revision.world.blocks.defense.HackTurret
 import revision.world.blocks.defense.ReWall
 import revision.world.blocks.defense.Thorns
 import revision.world.blocks.power.WindTurbine
-import revision.world.blocks.production.*
+import revision.world.blocks.production.CoalLiquefier
+import revision.world.blocks.production.Freezer
+import revision.world.blocks.production.Heater
+import revision.world.blocks.production.MultiDrill
 import revision.world.blocks.units.Collector
 
 class ReBlocks : ContentList {
@@ -244,6 +249,21 @@ class ReBlocks : ContentList {
                 consumes.liquid(Liquids.water, 0.25f)
             }
         }
+
+        hacker = object : HackTurret("hacker") {
+            init {
+                requirements(Category.turret, with(Items.silicon, 120, Items.titanium, 90, Items.graphite, 30))
+
+                hasPower = true
+                size = 2
+                range = 240f
+                damage = 0.5f
+                health = 160 * size * size
+                rotateSpeed = 10f
+
+                consumes.powerCond(3f) { e: HackBuild -> e.target != null }
+            }
+        }
     }
 
     companion object {
@@ -261,5 +281,6 @@ class ReBlocks : ContentList {
         lateinit var collector: Block
         lateinit var multiDrill: Block
         lateinit var coalLiquefier: Block
+        lateinit var hacker: Block
     }
 }

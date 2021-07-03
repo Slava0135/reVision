@@ -28,7 +28,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
     var shootCone = 6f
     var shootLength = 5f
     var laserWidth = 0.6f
-    var damage = 10
+    var damage = 0.5f
     var targetAir = true
     var targetGround = true
     var laserColor = Color.white
