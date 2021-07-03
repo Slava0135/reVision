@@ -6,6 +6,8 @@ import arc.graphics.g2d.Draw
 import arc.graphics.g2d.TextureRegion
 import arc.math.Angles
 import arc.math.Mathf
+import arc.struct.Seq
+import arc.util.Timer
 import arc.util.io.Reads
 import arc.util.io.Writes
 import mindustry.Vars
@@ -20,6 +22,8 @@ import mindustry.world.meta.Stat
 import mindustry.world.meta.StatUnit
 
 open class HackTurret(name: String) : BaseTurret(name) {
+
+    val targets = Seq<Unit>()
 
     lateinit var baseRegion: TextureRegion
     lateinit var laser: TextureRegion
@@ -41,6 +45,8 @@ open class HackTurret(name: String) : BaseTurret(name) {
         rotateSpeed = 10f
         acceptCoolant = true
         canOverdrive = true
+
+        Timer.schedule({ targets.removeAll { it.dead() } }, 0f, 1f)
     }
 
     override fun load() {
@@ -64,7 +70,8 @@ open class HackTurret(name: String) : BaseTurret(name) {
     inner class HackBuild : BaseTurretBuild() {
 
         var target: Unit? = null
-        var lastX = 0f; var lastY = 0f
+        var lastX = 0f;
+        var lastY = 0f
         var progress = 0f
         var normalProgress = 0f
 
@@ -99,11 +106,13 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
         private fun findTarget() {
             target =
-                Units.bestEnemy(team, x, y, range,
-                { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) },
-                unitSort
-            )
+                Units.bestEnemy(
+                    team, x, y, range,
+                    { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) && target !in targets },
+                    unitSort
+                )
             target?.let {
+                targets.add(it)
                 lastX = target!!.x
                 lastY = target!!.y
             }
@@ -111,6 +120,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
         private fun reset() {
             progress = 0f
+            targets.remove(target)
             target = null
         }
 
