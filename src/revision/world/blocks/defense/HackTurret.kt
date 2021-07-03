@@ -13,6 +13,7 @@ import arc.util.io.Writes
 import mindustry.Vars
 import mindustry.entities.Units
 import mindustry.entities.Units.Sortf
+import mindustry.game.EventType
 import mindustry.gen.*
 import mindustry.gen.Unit
 import mindustry.graphics.Drawf
@@ -108,7 +109,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
             target =
                 Units.bestEnemy(
                     team, x, y, range,
-                    { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) && e !in targets },
+                    { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) && !e.spawnedByCore && e !in targets },
                     unitSort
                 )
             target?.let {
@@ -126,6 +127,11 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
         private fun validateTarget(): Boolean {
             return !Units.invalidateTarget(target, team, x, y, range) && efficiency() > 0.02f
+        }
+
+        override fun onRemoved() {
+            targets.remove(target)
+            super.onRemoved()
         }
 
         override fun draw() {

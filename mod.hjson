@@ -3,6 +3,6 @@ displayName: "reVision"
 author: "Slava0135"
 main: "revision.ReVision"
 description: "The other way around"
-version: "12.0"
+version: "12.1"
 minGameVersion: 120
 
