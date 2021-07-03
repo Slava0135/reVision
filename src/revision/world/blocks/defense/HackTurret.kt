@@ -138,7 +138,6 @@ open class HackTurret(name: String) : BaseTurret(name) {
                 lastX, lastY, efficiency() * laserWidth
             )
             Draw.mixcol()
-            Draw.color()
         }
 
         private fun drawProgress() {
