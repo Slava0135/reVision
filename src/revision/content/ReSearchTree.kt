@@ -1,6 +1,7 @@
 package revision.content
 
 import arc.struct.Seq
+import mindustry.content.Blocks
 import mindustry.content.Blocks.*
 import mindustry.content.TechTree
 import mindustry.content.TechTree.TechNode
@@ -9,6 +10,7 @@ import mindustry.ctype.UnlockableContent
 import mindustry.game.Objectives.Objective
 import mindustry.game.Objectives.Produce
 import mindustry.type.ItemStack
+import revision.content.ReBlocks.Companion.hacker
 
 
 class ReSearchTree : ContentList {
@@ -67,6 +69,9 @@ class ReSearchTree : ContentList {
             node(ReBlocks.thorns)
         }
 
+        margeNode(hacker) {
+            node(parallax)
+        }
     }
 
     companion object {
