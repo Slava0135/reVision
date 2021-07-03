@@ -43,7 +43,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
     init {
         rotateSpeed = 10f
-        acceptCoolant = true
+        acceptCoolant = false
         canOverdrive = true
 
         Timer.schedule({ targets.removeAll { it.dead() } }, 0f, 1f)
