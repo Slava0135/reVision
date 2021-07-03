@@ -2,9 +2,11 @@
 
 Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](https://github.com/Slava0135/reFine)
 
-# V11 LIQUEFACTION
+# V12 HACK1NG
 ## Additions
-#### Coal Liquefier!
+#### Hacker!
+* Capture enemy units
+#### Coal Liquefier
 * Liquefies coal to oil
 #### Multi Drill
 * Mine several resources at once with increased range
