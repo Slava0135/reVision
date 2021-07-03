@@ -17,8 +17,8 @@ import mindustry.world.meta.StatUnit
 
 open class WindTurbine(name: String) : PowerGenerator(name) {
 
-    var fanRegion: TextureRegion? = null
-    var topRegion: TextureRegion? = null
+    lateinit var fanRegion: TextureRegion
+    lateinit var topRegion: TextureRegion
 
     override fun load() {
         super.load()
@@ -43,7 +43,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
     }
 
     override fun icons(): Array<TextureRegion> {
-        return arrayOf(region, fanRegion!!, topRegion!!)
+        return arrayOf(region, fanRegion, topRegion)
     }
 
     inner class WindTurbineBuild : GeneratorBuild() {
