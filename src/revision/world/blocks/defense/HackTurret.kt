@@ -2,10 +2,15 @@ package revision.world.blocks.defense
 
 import arc.Core
 import arc.graphics.Color
+import arc.graphics.g2d.Draw
 import arc.graphics.g2d.TextureRegion
+import arc.math.Angles
+import arc.math.Mathf
 import arc.util.io.Reads
 import arc.util.io.Writes
 import mindustry.gen.Sounds
+import mindustry.graphics.Drawf
+import mindustry.graphics.Layer
 import mindustry.world.blocks.defense.turrets.BaseTurret
 import mindustry.world.meta.Stat
 import mindustry.world.meta.StatUnit
@@ -28,8 +33,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
     init {
         rotateSpeed = 10f
-        coolantMultiplier = 1f
-        acceptCoolant = false
+        acceptCoolant = true
         expanded = true
     }
 
@@ -52,6 +56,30 @@ open class HackTurret(name: String) : BaseTurret(name) {
     }
 
     inner class HackBuild : BaseTurretBuild() {
+
+        var target: Unit? = null
+        var lastX = 0f; var lastY = 0f
+        var any = false
+        var progress = 0f;
+
+        override fun draw() {
+            Draw.rect(baseRegion, x, y)
+            Drawf.shadow(region, x - size / 2f, y - size / 2f, rotation - 90)
+            Draw.rect(region, x, y, rotation - 90)
+
+            if (any) {
+                Draw.z(Layer.bullet)
+                val ang = angleTo(lastX, lastY)
+                Draw.mixcol(laserColor, Mathf.absin(4f, 0.6f))
+                Drawf.laser(
+                    team, laser, laserEnd,
+                    x + Angles.trnsx(ang, shootLength), y + Angles.trnsy(ang, shootLength),
+                    lastX, lastY, efficiency() * laserWidth
+                )
+                Draw.mixcol()
+            }
+        }
+
         override fun write(write: Writes) {
             super.write(write)
             write.f(rotation)
