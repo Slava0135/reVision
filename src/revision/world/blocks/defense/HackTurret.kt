@@ -103,8 +103,10 @@ open class HackTurret(name: String) : BaseTurret(name) {
                 { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) },
                 unitSort
             )
-            lastX = target!!.x
-            lastY = target!!.y
+            target?.let {
+                lastX = target!!.x
+                lastY = target!!.y
+            }
         }
 
         private fun reset() {
