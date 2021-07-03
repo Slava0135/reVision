@@ -65,7 +65,8 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
         var target: Teamc? = null
         var lastX = 0f; var lastY = 0f
-        var progress = 0f;
+        var progress = 0f
+        var normalProgress = 0f
 
         override fun updateTile() {
             if (validateTarget()) {
@@ -82,6 +83,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
                 if (Angles.within(rotation, dest, shootCone)) {
                     progress += damage
+                    normalProgress = progress / (target as Healthc).maxHealth()
                     if (progress > (target as Healthc).maxHealth()) {
                         target!!.team(team())
                         reset()
@@ -108,28 +110,42 @@ open class HackTurret(name: String) : BaseTurret(name) {
         }
 
         private fun validateTarget(): Boolean {
-            return !Units.invalidateTarget(target, team, x, y)
+            return target != null
+                    && !Units.invalidateTarget(target, team, x, y)
                     && target!!.within(this, range)
                     && target!!.team() != team
                     && efficiency() > 0.02f
         }
 
         override fun draw() {
+            drawTurret()
+            if (target != null) {
+                drawLaser()
+                drawProgress()
+            }
+        }
+
+        private fun drawTurret() {
             Draw.rect(baseRegion, x, y)
             Drawf.shadow(region, x - size / 2f, y - size / 2f, rotation - 90)
             Draw.rect(region, x, y, rotation - 90)
+        }
 
-            if (target != null) {
-                Draw.z(Layer.bullet)
-                val ang = angleTo(lastX, lastY)
-                Draw.mixcol(laserColor, Mathf.absin(4f, 0.6f))
-                Drawf.laser(
-                    team, laser, laserEnd,
-                    x + Angles.trnsx(ang, shootLength), y + Angles.trnsy(ang, shootLength),
-                    lastX, lastY, efficiency() * laserWidth
-                )
-                Draw.mixcol()
-            }
+        private fun drawLaser() {
+            Draw.z(Layer.bullet)
+            val ang = angleTo(lastX, lastY)
+            Draw.mixcol(laserColor, Mathf.absin(4f, 0.6f))
+            Drawf.laser(
+                team, laser, laserEnd,
+                x + Angles.trnsx(ang, shootLength), y + Angles.trnsy(ang, shootLength),
+                lastX, lastY, efficiency() * laserWidth
+            )
+            Draw.mixcol()
+            Draw.color()
+        }
+
+        private fun drawProgress() {
+            Drawf.target(lastX, lastY, Vars.tilesize.toFloat(), normalProgress, team.color)
         }
 
         override fun write(write: Writes) {
