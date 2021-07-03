@@ -6,11 +6,9 @@ import mindustry.type.Item
 
 class ReItems : ContentList {
     override fun load() {
-        snowball = object : Item("snowball", Color.valueOf("FFFFFF")) {
-            init {
-                alwaysUnlocked = true
-                lowPriority = true
-            }
+        snowball = object : Item("snowball", Color.valueOf("FFFFFF")) {}.apply {
+            alwaysUnlocked = true
+            lowPriority = true
         }
     }
 

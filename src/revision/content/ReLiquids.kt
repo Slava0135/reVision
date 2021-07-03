@@ -7,14 +7,12 @@ import mindustry.type.Liquid
 
 class ReLiquids : ContentList {
     override fun load() {
-        pollutedWater = object : Liquid("polluted-water") {
-            init {
-                temperature = 0.5f
-                viscosity = 0.5f
-                heatCapacity = 0.4f
-                effect = wet
-                color = Color.valueOf("645195")
-            }
+        pollutedWater = object : Liquid("polluted-water") {}.apply {
+            temperature = 0.5f
+            viscosity = 0.5f
+            heatCapacity = 0.4f
+            effect = wet
+            color = Color.valueOf("645195")
         }
     }
 
