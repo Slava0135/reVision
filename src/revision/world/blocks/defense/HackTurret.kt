@@ -98,9 +98,10 @@ open class HackTurret(name: String) : BaseTurret(name) {
         }
 
         private fun findTarget() {
-            target = Units.bestTarget(team, x, y, range,
+            target =
+                Units.bestTarget(team, x, y, range,
                 { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) },
-                { b: Building? -> true }, unitSort
+                { true }, unitSort
             )
         }
 
@@ -110,11 +111,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
         }
 
         private fun validateTarget(): Boolean {
-            return target != null
-                    && !Units.invalidateTarget(target, team, x, y)
-                    && target!!.within(this, range)
-                    && target!!.team() != team
-                    && efficiency() > 0.02f
+            return !Units.invalidateTarget(target, team, x, y, range) && efficiency() > 0.02f
         }
 
         override fun draw() {
@@ -145,7 +142,8 @@ open class HackTurret(name: String) : BaseTurret(name) {
         }
 
         private fun drawProgress() {
-            Drawf.target(lastX, lastY, Vars.tilesize.toFloat(), normalProgress, team.color)
+            val hitSize = if (target is Building) (target as Building).hitSize() else (target as Unit).hitSize
+            Drawf.target(lastX, lastY, hitSize, normalProgress, team.color)
         }
 
         override fun write(write: Writes) {
