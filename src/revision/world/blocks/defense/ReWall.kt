@@ -7,7 +7,7 @@ import mindustry.world.blocks.defense.Wall
 open class ReWall(name: String) : Wall(name) {
 
     var fraction = 25f
-    var reload = 1f
+    var reload = 60f
 
     init {
         canOverdrive = true

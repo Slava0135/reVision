@@ -28,7 +28,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
     var shootCone = 6f
     var shootLength = 5f
     var laserWidth = 0.6f
-    var damage = 30f
+    var damage = 0.5f
     var targetAir = true
     var targetGround = true
     var laserColor = Color.white
@@ -54,7 +54,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
         super.setStats()
         stats.add(Stat.targetsAir, targetAir)
         stats.add(Stat.targetsGround, targetGround)
-        stats.add(Stat.damage, damage, StatUnit.perSecond)
+        stats.add(Stat.damage, 60f * damage, StatUnit.perSecond)
     }
 
     override fun icons(): Array<TextureRegion> {
@@ -110,10 +110,6 @@ open class HackTurret(name: String) : BaseTurret(name) {
         private fun reset() {
             progress = 0f
             target = null
-        }
-
-        override fun efficiency(): Float {
-            return super.efficiency()
         }
 
         private fun validateTarget(): Boolean {
