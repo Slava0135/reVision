@@ -108,7 +108,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
             target =
                 Units.bestEnemy(
                     team, x, y, range,
-                    { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) && target !in targets },
+                    { e: Unit -> !e.dead() && (e.isGrounded || targetAir) && (!e.isGrounded || targetGround) && e !in targets },
                     unitSort
                 )
             target?.let {
