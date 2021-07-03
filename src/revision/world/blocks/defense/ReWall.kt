@@ -7,13 +7,24 @@ import mindustry.world.blocks.defense.Wall
 open class ReWall(name: String) : Wall(name) {
 
     var fraction = 25f
-    var cooldown = 60f
+    var reload = 1f
+
+    init {
+        canOverdrive = true
+    }
 
     inner class ReWallBuild : WallBuild() {
+
+        var charge = 0f
+
         override fun updateTile() {
-            if (this.damaged() && timer.get(0, cooldown)) {
-                heal(maxHealth / fraction)
-                Fx.healBlockFull.at(x, y, size.toFloat(), Pal.heal)
+            if (this.damaged()) {
+                charge += delta()
+                if (charge > reload) {
+                    charge = 0f
+                    heal(maxHealth / fraction)
+                    Fx.healBlockFull.at(x, y, size.toFloat(), Pal.heal)
+                }
             }
         }
     }
