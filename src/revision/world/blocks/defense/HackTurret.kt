@@ -28,7 +28,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
     var shootCone = 6f
     var shootLength = 5f
     var laserWidth = 0.6f
-    var damage = 0.5f
+    var damage = 30f
     var targetAir = true
     var targetGround = true
     var laserColor = Color.white
@@ -40,7 +40,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
     init {
         rotateSpeed = 10f
         acceptCoolant = true
-        expanded = true
+        canOverdrive = true
     }
 
     override fun load() {
@@ -54,7 +54,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
         super.setStats()
         stats.add(Stat.targetsAir, targetAir)
         stats.add(Stat.targetsGround, targetGround)
-        stats.add(Stat.damage, damage * 60f, StatUnit.perSecond)
+        stats.add(Stat.damage, damage, StatUnit.perSecond)
     }
 
     override fun icons(): Array<TextureRegion> {
@@ -82,7 +82,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
                 lastY = target!!.y
 
                 if (Angles.within(rotation, dest, shootCone)) {
-                    progress += damage
+                    progress += edelta() * damage
                     normalProgress = progress / (target as Healthc).maxHealth()
                     if (progress > (target as Healthc).maxHealth()) {
                         target!!.team(team())
@@ -108,6 +108,10 @@ open class HackTurret(name: String) : BaseTurret(name) {
         private fun reset() {
             progress = 0f
             target = null
+        }
+
+        override fun efficiency(): Float {
+            return super.efficiency()
         }
 
         private fun validateTarget(): Boolean {
