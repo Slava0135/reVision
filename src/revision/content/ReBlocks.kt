@@ -99,7 +99,7 @@ class ReBlocks : ContentList {
 
             size = 2
             update = true
-            health = 2400
+            health = 2000
         }
 
         reWall = object : ReWall("rewall") {}.apply {
@@ -107,7 +107,7 @@ class ReBlocks : ContentList {
 
             size = 1
             update = true
-            health = 600
+            health = 500
         }
 
         scraper = object : Drill("scraper") {}.apply {
@@ -137,7 +137,7 @@ class ReBlocks : ContentList {
             maxAmmo = 30
             inaccuracy = 30f
             rotateSpeed = 12f
-            reloadTime = 1f
+            reloadTime = 2f
         }
 
         sieve = object : GenericCrafter("sieve") {}.apply {

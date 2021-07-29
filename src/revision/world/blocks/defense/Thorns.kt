@@ -5,6 +5,8 @@ import arc.graphics.g2d.Fill
 import mindustry.gen.Building
 import mindustry.gen.Unit
 import mindustry.world.Block
+import mindustry.world.meta.Stat
+import mindustry.world.meta.StatUnit
 
 open class Thorns(name: String) : Block(name) {
 
@@ -12,7 +14,11 @@ open class Thorns(name: String) : Block(name) {
 
     var cooldown = 30f
     var damage = 8f
-    var tileDamage = 25f
+
+    override fun setStats() {
+        super.setStats()
+        stats.add(Stat.damage, 60f / cooldown * damage, StatUnit.perSecond)
+    }
 
     inner class ThornsBuild : Building() {
 
@@ -27,7 +33,7 @@ open class Thorns(name: String) : Block(name) {
         override fun unitOn(unit: Unit?) {
             if (timer.get(timerDamage, cooldown)) {
                 unit!!.damage(damage)
-                damage(tileDamage)
+                damage(damage)
             }
         }
     }
