@@ -31,7 +31,7 @@ open class ReWall(name: String) : Wall(name) {
         super.setBars()
         bars.add("efficiency") { entity: ReWallBuild ->
             Bar(
-                { Core.bundle.formatFloat("bar.efficiency", entity.lastHeal/ Time.delta * 60, 1) },
+                { Core.bundle.formatFloat("bar.efficiency", entity.efficiency(), 1) },
                 { Pal.ammo },
                 { entity.efficiency() }
             )
@@ -41,15 +41,13 @@ open class ReWall(name: String) : Wall(name) {
     inner class ReWallBuild : WallBuild() {
 
         var charge = 0f
-        var lastHeal = 0f
 
         override fun updateTile() {
             if (this.damaged()) {
                 charge += delta()
                 if (charge > reload) {
                     charge = 0f
-                    lastHeal = efficiency() * maxHealth / fraction
-                    heal(lastHeal)
+                    heal(efficiency() * maxHealth / fraction)
                     Fx.healBlockFull.at(x, y, size.toFloat(), Pal.heal)
                 }
             }
