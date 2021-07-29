@@ -31,7 +31,7 @@ open class ReWall(name: String) : Wall(name) {
         super.setBars()
         bars.add("efficiency") { entity: ReWallBuild ->
             Bar(
-                { Core.bundle.formatFloat("bar.efficiency", entity.efficiency(), 1) },
+                { Core.bundle.formatFloat("bar.efficiency", 100 * entity.efficiency(), 1) },
                 { Pal.ammo },
                 { entity.efficiency() }
             )
