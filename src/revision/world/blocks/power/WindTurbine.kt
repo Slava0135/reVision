@@ -61,7 +61,7 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
                         arrayOf(Point2(bot-1, bot-1), Point2(bot-1, top+1), Point2(top+1, top+1), Point2(top+1, bot-1))
                 val base = edges.size
                 val occupied = edges.count {
-                    Vars.world.tile(tile.x + it.x, tile.y + it.y).solid()
+                    Vars.world.tile(tile.x + it.x, tile.y + it.y)?.solid() ?: false
                 }
                 productionEfficiency = if (enabled) 1f - occupied.toFloat() / base else 0f
             }
