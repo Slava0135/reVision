@@ -1,10 +1,8 @@
 ![logo](assets/preview.png)
 
-Also check out [routorio](https://github.com/DeltaNedas/routorio) and [reFine](https://github.com/Slava0135/reFine)
-
-# V12 HACK1NG
+# V13 - mindustry v7 support
 ## Additions
-#### Hacker!
+#### Hacker
 * Capture enemy units
 #### Coal Liquefier
 * Liquefies coal to oil
