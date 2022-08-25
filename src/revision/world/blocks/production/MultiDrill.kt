@@ -95,7 +95,7 @@ open class MultiDrill(name: String) : Block(name) {
             val dx: Float = x * Vars.tilesize + offset - 16
             val dy = y * Vars.tilesize + offset + size * Vars.tilesize / 2f
             Draw.mixcol(Color.darkGray, 1f)
-            val itemRegion = Core.atlas.find("${ore.name}-item")
+            val itemRegion = ore.fullIcon
             Draw.rect(itemRegion, dx + off, dy - 1)
             Draw.reset()
             Draw.rect(itemRegion, dx + off, dy)
@@ -155,7 +155,7 @@ open class MultiDrill(name: String) : Block(name) {
                 val dx = x - size * Vars.tilesize / 2f
                 val dy = y + size * Vars.tilesize / 2f
                 Draw.mixcol(Color.darkGray, 1f)
-                val itemRegion = Core.atlas.find("${ore.name}-item")
+                val itemRegion = ore.fullIcon
                 Draw.rect(itemRegion, dx + off, dy - 1)
                 Draw.reset()
                 Draw.rect(itemRegion, dx + off, dy)
@@ -189,7 +189,7 @@ open class MultiDrill(name: String) : Block(name) {
 
             if (items.total() < ores.size * itemCapacity && canConsume()) {
                 val speed = Mathf.lerp(1f, liquidBoostIntensity, optionalEfficiency) * efficiency
-                warmup = Mathf.approachDelta(warmup, speed, warmupSpeed);
+                warmup = Mathf.approachDelta(warmup, speed, warmupSpeed)
 
                 for (ore in ores) {
                     oreProgress.increment(ore.key, 0f, delta() * ore.value * speed * warmup)
@@ -208,7 +208,7 @@ open class MultiDrill(name: String) : Block(name) {
                 if (oreProgress.get(ore.key, 0f) >= delay && items.get(ore.key) < itemCapacity) {
                     offload(ore.key)
                     oreProgress.increment(ore.key, 0f, -delay)
-                    drillEffect.at(x + Mathf.range(size), y + Mathf.range(size), ore.key.color);
+                    drillEffect.at(x + Mathf.range(size), y + Mathf.range(size), ore.key.color)
                 }
             }
         }
