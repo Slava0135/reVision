@@ -45,7 +45,7 @@ open class ReWall(name: String) : Wall(name) {
                 if (timeElapsed > healInterval) {
                     timeElapsed = 0f
                     heal(efficiency() * healRatio * maxHealth)
-                    Fx.healBlockFull.at(x, y, size.toFloat(), Pal.heal)
+                    Fx.healBlockFull.at(x, y, block.size.toFloat(), Pal.heal, this.block)
                 }
             }
         }
