@@ -55,7 +55,7 @@ class ReBlocks {
                 hasPower = true
                 hasLiquids = true
                 hasItems = true
-                outputLiquid = LiquidStack(Liquids.water, 60f)
+                outputLiquid = LiquidStack(Liquids.water, 1f)
                 outputItem = ItemStack(Items.thorium, 1)
                 consumePower(1f)
                 consumeItem(Items.coal, 2)
@@ -90,7 +90,7 @@ class ReBlocks {
                 hasPower = true
                 hasLiquids = true
                 hasItems = true
-                outputLiquid = LiquidStack(Liquids.water, 4f)
+                outputLiquid = LiquidStack(Liquids.water, 0.2f)
                 consumePower(0.25f)
                 consumeItem(ReItems.snowball, 1)
             }
@@ -158,7 +158,7 @@ class ReBlocks {
                 hasPower = true
                 hasLiquids = true
                 hasItems = true
-                outputLiquid = LiquidStack(ReLiquids.pollutedWater, 12f)
+                outputLiquid = LiquidStack(ReLiquids.pollutedWater, 0.2f)
                 consumePower(0.5f)
                 consumeItem(Items.sporePod, 1)
                 consumeLiquid(Liquids.water, 0.2f)
@@ -192,6 +192,7 @@ class ReBlocks {
                     Category.production,
                     with(Items.copper, 130, Items.silicon, 120, Items.graphite, 100, Items.phaseFabric, 75)
                 )
+                itemCapacity = 20
                 size = 4
                 hasPower = true
                 consumePower(6f)
@@ -208,7 +209,7 @@ class ReBlocks {
                 liquidCapacity = 240f
                 craftEffect = Fx.steam
                 ambientSound = release
-                outputLiquid = LiquidStack(Liquids.oil, 15f)
+                outputLiquid = LiquidStack(Liquids.oil, 0.25f)
                 hasPower = true
                 hasLiquids = true
                 hasItems = true

@@ -32,7 +32,7 @@ class ReBullets {
                 frontColor = Color.orange
                 backColor = Color.orange
                 status = burning
-                statusDuration = 50f
+                statusDuration = 60f
                 shootEffect = shootSmall
                 smokeEffect = shootSmallSmoke
                 ammoMultiplier = 8f
@@ -51,7 +51,7 @@ class ReBullets {
                 frontColor = Color.valueOf("FFFFFF")
                 backColor = Color.valueOf("FFFFFF")
                 status = freezing
-                statusDuration = 50f
+                statusDuration = 60f
                 shootEffect = shootSmall
                 smokeEffect = shootSmallSmoke
                 ammoMultiplier = 8f
