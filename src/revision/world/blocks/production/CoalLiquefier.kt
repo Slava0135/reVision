@@ -23,12 +23,10 @@ open class CoalLiquefier(name: String) : GenericCrafter(name) {
     }
 
     inner class CoalLiquefierBuild : GenericCrafterBuild() {
-
         override fun draw() {
             super.draw()
             Drawf.liquid(liquidRegion, x, y, liquids.get(outputLiquid.liquid) / liquidCapacity, Liquids.oil.color)
             Draw.rect(topRegion, x, y)
         }
-
     }
 }

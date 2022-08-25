@@ -44,7 +44,6 @@ open class HackTurret(name: String) : BaseTurret(name) {
 
     init {
         rotateSpeed = 10f
-        acceptCoolant = false
         canOverdrive = true
 
         Timer.schedule({ targets.removeAll { it.dead() } }, 0f, 1f)
@@ -153,7 +152,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
             val ang = angleTo(lastX, lastY)
             Draw.mixcol(laserColor, Mathf.absin(4f, 0.6f))
             Drawf.laser(
-                team, laser, laserEnd,
+                laser, laserEnd,
                 x + Angles.trnsx(ang, shootLength), y + Angles.trnsy(ang, shootLength),
                 lastX, lastY, efficiency() * laserWidth
             )
@@ -173,5 +172,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
             super.read(read, revision)
             rotation = read.f()
         }
+
+        override fun shouldConsume() = target != null
     }
 }

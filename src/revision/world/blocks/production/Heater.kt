@@ -23,12 +23,10 @@ open class Heater(name: String) : GenericCrafter(name) {
     }
 
     inner class HeaterBuild : GenericCrafterBuild() {
-
         override fun draw() {
             super.draw()
             Drawf.liquid(liquidRegion, x, y, liquids.get(outputLiquid.liquid) / liquidCapacity, Liquids.water.color)
             Draw.rect(topRegion, x, y)
         }
-
     }
 }

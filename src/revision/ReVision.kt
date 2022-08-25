@@ -8,17 +8,16 @@ import mindustry.world.meta.BuildVisibility
 import revision.content.*
 
 class ReVision : Mod() {
-
     override fun init() {
 
     }
 
     override fun loadContent() {
-        ReLiquids().load()
-        ReItems().load()
-        ReBullets().load()
-        ReBlocks().load()
-        ReSearchTree().load()
+        ReLiquids.load()
+        ReItems.load()
+        ReBullets.load()
+        ReBlocks.load()
+        ReSearchTree.load()
 
         (Blocks.darksandTaintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
         (Blocks.taintedWater as Floor).liquidDrop = ReLiquids.pollutedWater
@@ -33,5 +32,4 @@ class ReVision : Mod() {
         (Blocks.tsunami as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedTsunami)
         (Blocks.wave as LiquidTurret).ammoTypes.put(ReLiquids.pollutedWater, ReBullets.pollutedWave)
     }
-
 }

@@ -1,82 +1,66 @@
 package revision.content
 
 import arc.struct.Seq
-import mindustry.content.Blocks
 import mindustry.content.Blocks.*
 import mindustry.content.TechTree
 import mindustry.content.TechTree.TechNode
-import mindustry.ctype.ContentList
 import mindustry.ctype.UnlockableContent
 import mindustry.game.Objectives.Objective
 import mindustry.game.Objectives.Produce
 import mindustry.type.ItemStack
 import revision.content.ReBlocks.Companion.hacker
 
+class ReSearchTree {
+    companion object {
+        var context: TechNode? = null
 
-class ReSearchTree : ContentList {
-
-    override fun load() {
-
-        margeNode(ReBlocks.shredder) {
-            node(scrapWall) {
-                node(scrapWallLarge) {
-                    node(scrapWallHuge) {
-                        node(scrapWallGigantic)
+        fun load() {
+            margeNode(ReBlocks.shredder) {
+                node(scrapWall) {
+                    node(scrapWallLarge) {
+                        node(scrapWallHuge) {
+                            node(scrapWallGigantic)
+                        }
                     }
                 }
             }
-        }
-
-        margeNode(blastDrill) {
-            node(ReBlocks.multiDrill)
-        }
-
-        margeNode(waterExtractor) {
-            node(ReBlocks.freezer)
-            node(ReBlocks.heater)
-        }
-
-        margeNode(cultivator) {
-            node(ReBlocks.tainter)
-            node(ReBlocks.filter)
-        }
-
-        margeNode(powerNode) {
-            node(ReBlocks.windTurbine)
-        }
-
-        margeNode(oilExtractor) {
-            node(ReBlocks.coalLiquefier)
-        }
-
-        margeNode(mendProjector) {
-            node(ReBlocks.reWall) {
-                node(ReBlocks.largeReWall)
+            margeNode(blastDrill) {
+                node(ReBlocks.multiDrill)
+            }
+            margeNode(waterExtractor) {
+                node(ReBlocks.freezer)
+                node(ReBlocks.heater)
+            }
+            margeNode(cultivator) {
+                node(ReBlocks.tainter)
+                node(ReBlocks.filter)
+            }
+            margeNode(powerNode) {
+                node(ReBlocks.windTurbine)
+            }
+            margeNode(oilExtractor) {
+                node(ReBlocks.coalLiquefier)
+            }
+            margeNode(mendProjector) {
+                node(ReBlocks.reWall) {
+                    node(ReBlocks.largeReWall)
+                }
+            }
+            margeNode(container) {
+                node(ReBlocks.collector)
+            }
+            margeNode(mechanicalDrill) {
+                node(ReBlocks.scraper)
+                node(ReBlocks.sieve)
+            }
+            margeNode(duo) {
+                node(ReBlocks.shredder)
+                node(ReBlocks.thorns)
+            }
+            margeNode(hacker) {
+                node(parallax)
             }
         }
-
-        margeNode(container) {
-            node(ReBlocks.collector)
-        }
-
-        margeNode(mechanicalDrill) {
-            node(ReBlocks.scraper)
-            node(ReBlocks.sieve)
-        }
-
-        margeNode(duo) {
-            node(ReBlocks.shredder)
-            node(ReBlocks.thorns)
-        }
-
-        margeNode(hacker) {
-            node(parallax)
-        }
-    }
-
-    companion object {
-
-        var context: TechNode? = null
 
         private fun margeNode(parent: UnlockableContent, children: Runnable) {
             val parnode = TechTree.all.find { t: TechNode -> t.content === parent }
@@ -119,7 +103,7 @@ class ReSearchTree : ContentList {
             objectives: Seq<Objective> = Seq.with(),
             children: Runnable = Runnable {}
         ) {
-            node(content, content.researchRequirements(), objectives.and(Produce(content)), children)
+            node(content, content.researchRequirements(), objectives.add(Produce(content)), children)
         }
 
         private fun nodeProduce(content: UnlockableContent, children: Runnable) {

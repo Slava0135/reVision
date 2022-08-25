@@ -21,7 +21,6 @@ open class Thorns(name: String) : Block(name) {
     }
 
     inner class ThornsBuild : Building() {
-
         override fun draw() {
             super.draw()
             Draw.color(team.color)

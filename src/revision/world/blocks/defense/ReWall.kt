@@ -13,8 +13,8 @@ import mindustry.world.meta.StatUnit
 
 open class ReWall(name: String) : Wall(name) {
 
-    var fraction = 25f
-    var reload = 60f
+    var healRatio = 1 / 25f
+    var healInterval = 60f
 
     init {
         canOverdrive = true
@@ -22,12 +22,12 @@ open class ReWall(name: String) : Wall(name) {
 
     override fun setStats() {
         super.setStats()
-        stats.add(Stat.health, (60f / reload) * (health / fraction), StatUnit.perSecond)
+        stats.add(Stat.health, (60f / healInterval) * (healRatio * health), StatUnit.perSecond)
     }
 
     override fun setBars() {
         super.setBars()
-        bars.add("efficiency") { entity: ReWallBuild ->
+        addBar("efficiency") { entity: ReWallBuild ->
             Bar(
                 { Core.bundle.formatFloat("bar.efficiency", 100 * entity.efficiency(), 1) },
                 { Pal.ammo },
@@ -37,21 +37,21 @@ open class ReWall(name: String) : Wall(name) {
     }
 
     inner class ReWallBuild : WallBuild() {
-
-        var charge = 0f
+        var timeElapsed = 0f
 
         override fun updateTile() {
             if (this.damaged()) {
-                charge += delta()
-                if (charge > reload) {
-                    charge = 0f
-                    heal(efficiency() * maxHealth / fraction)
+                timeElapsed += delta()
+                if (timeElapsed > healInterval) {
+                    timeElapsed = 0f
+                    heal(efficiency() * healRatio * maxHealth)
                     Fx.healBlockFull.at(x, y, size.toFloat(), Pal.heal)
                 }
             }
         }
 
-        override fun efficiency() = Mathf.maxZero(Attribute.light.env() + if (Vars.state.rules.lighting) 1f - Vars.state.rules.ambientLight.a else 1f)
+        override fun efficiency() =
+            Mathf.maxZero(Attribute.light.env() + if (Vars.state.rules.lighting) 1f - Vars.state.rules.ambientLight.a else 1f)
     }
 
 }

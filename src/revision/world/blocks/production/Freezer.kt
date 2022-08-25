@@ -5,10 +5,7 @@ import arc.graphics.g2d.Draw
 import arc.graphics.g2d.TextureRegion
 import mindustry.content.Liquids
 import mindustry.graphics.Drawf
-import mindustry.type.Liquid
-import mindustry.type.LiquidStack
 import mindustry.world.blocks.production.GenericCrafter
-import mindustry.world.consumers.ConsumeType
 
 open class Freezer(name: String) : GenericCrafter(name) {
 
@@ -26,12 +23,10 @@ open class Freezer(name: String) : GenericCrafter(name) {
     }
 
     inner class FreezerBuild : GenericCrafterBuild() {
-
         override fun draw() {
             super.draw()
             Drawf.liquid(liquidRegion, x, y, liquids.get(Liquids.water) / liquidCapacity, Liquids.water.color)
             Draw.rect(topRegion, x, y)
         }
-
     }
 }

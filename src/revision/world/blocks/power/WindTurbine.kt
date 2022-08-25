@@ -47,12 +47,11 @@ open class WindTurbine(name: String) : PowerGenerator(name) {
     }
 
     inner class WindTurbineBuild : GeneratorBuild() {
-
         var time = 0f
         var count = 0
 
         override fun updateTile() {
-            count = (count + 1) % 60
+            count = (count + 1) % 60 // update only once every second
             if (count == 1) {
                 val bot = (-((size - 1) / 2f)).toInt() - 1
                 val top = ((size - 1) / 2f + 0.5f).toInt() + 1

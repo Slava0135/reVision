@@ -18,7 +18,6 @@ import mindustry.gen.Building
 import mindustry.gen.Sounds
 import mindustry.graphics.Pal
 import mindustry.type.Item
-import mindustry.ui.Cicon
 import mindustry.world.Block
 import mindustry.world.Edges
 import mindustry.world.Tile
@@ -68,16 +67,18 @@ open class MultiDrill(name: String) : Block(name) {
         return arrayOf(region, rotatorRegion, topRegion)
     }
 
-    override fun canPlaceOn(tile: Tile, team: Team): Boolean {
-        for (other in tile.getLinkedTilesAs(this, tempTiles)){
-            if (canMine(other)) {
-                return true
+    override fun canPlaceOn(tile: Tile?, team: Team?, rotation: Int): Boolean {
+        if (tile != null) {
+            for (other in tile.getLinkedTilesAs(this, tempTiles)) {
+                if (canMine(other)) {
+                    return true
+                }
             }
-        }
-        for (edge in Edges.getInsideEdges(size + 2)) {
-            val other = Vars.world.tile(tile.x + edge.x, tile.y + edge.y)
-            if (canMine(other)) {
-                return true
+            for (edge in Edges.getInsideEdges(size + 2)) {
+                val other = Vars.world.tile(tile.x + edge.x, tile.y + edge.y)
+                if (canMine(other)) {
+                    return true
+                }
             }
         }
         return false
@@ -94,9 +95,10 @@ open class MultiDrill(name: String) : Block(name) {
             val dx: Float = x * Vars.tilesize + offset - 16
             val dy = y * Vars.tilesize + offset + size * Vars.tilesize / 2f
             Draw.mixcol(Color.darkGray, 1f)
-            Draw.rect(ore.icon(Cicon.small), dx + off, dy - 1)
+            val itemRegion = Core.atlas.find("${ore.name}-item")
+            Draw.rect(itemRegion, dx + off, dy - 1)
             Draw.reset()
-            Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+            Draw.rect(itemRegion, dx + off, dy)
             off += 8
         }
         Draw.reset()
@@ -153,9 +155,10 @@ open class MultiDrill(name: String) : Block(name) {
                 val dx = x - size * Vars.tilesize / 2f
                 val dy = y + size * Vars.tilesize / 2f
                 Draw.mixcol(Color.darkGray, 1f)
-                Draw.rect(ore.icon(Cicon.small), dx + off, dy - 1)
+                val itemRegion = Core.atlas.find("${ore.name}-item")
+                Draw.rect(itemRegion, dx + off, dy - 1)
                 Draw.reset()
-                Draw.rect(ore.icon(Cicon.small), dx + off, dy)
+                Draw.rect(itemRegion, dx + off, dy)
                 off += 8
             }
             Draw.reset()
@@ -184,15 +187,9 @@ open class MultiDrill(name: String) : Block(name) {
 
             timeDrilled += warmup * delta()
 
-            if (items.total() < ores.size * itemCapacity && consValid()) {
-                var speed = 1f
-
-                if (cons.optionalValid()) {
-                    speed = liquidBoostIntensity;
-                }
-
-                speed *= efficiency()
-                warmup = Mathf.lerpDelta(warmup, speed, warmupSpeed)
+            if (items.total() < ores.size * itemCapacity && canConsume()) {
+                val speed = Mathf.lerp(1f, liquidBoostIntensity, optionalEfficiency) * efficiency
+                warmup = Mathf.approachDelta(warmup, speed, warmupSpeed);
 
                 for (ore in ores) {
                     oreProgress.increment(ore.key, 0f, delta() * ore.value * speed * warmup)

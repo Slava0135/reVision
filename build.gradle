@@ -8,7 +8,7 @@ buildscript{
     ext{
         kotlinVersion = "1.6.20"
         //the build number that this mod is made for
-        mindustryVersion = 'v126'
+        mindustryVersion = 'v137'
         //version of SDK you will be using
         sdkVersion = '30'
         sdkRoot = System.getenv("ANDROID_HOME")
