@@ -42,7 +42,7 @@ class ReBlocks {
         lateinit var hacker: Block
 
         fun load() {
-            filter = object : GenericCrafter("filter") {}.apply {
+            filter = GenericCrafter("filter").apply {
                 requirements(
                     Category.crafting,
                     with(Items.copper, 125, Items.lead, 100, Items.graphite, 50, Items.titanium, 50)
@@ -62,7 +62,7 @@ class ReBlocks {
                 consumeLiquid(ReLiquids.pollutedWater, 1f)
             }
 
-            freezer = object : Freezer("freezer") {}.apply {
+            freezer = Freezer("freezer").apply {
                 requirements(
                     Category.crafting,
                     with(Items.copper, 125, Items.lead, 100, Items.graphite, 50, Items.metaglass, 50)
@@ -80,7 +80,7 @@ class ReBlocks {
                 consumeLiquid(Liquids.water, 0.4f)
             }
 
-            heater = object : Heater("heater") {}.apply {
+            heater = Heater("heater").apply {
                 requirements(Category.crafting, with(Items.copper, 75, Items.lead, 50, Items.metaglass, 50))
                 size = 2
                 craftTime = 20f
@@ -95,21 +95,21 @@ class ReBlocks {
                 consumeItem(ReItems.snowball, 1)
             }
 
-            largeReWall = object : ReWall("large-rewall") {}.apply {
+            largeReWall = ReWall("large-rewall").apply {
                 requirements(Category.defense, with(Items.silicon, 12, Items.lead, 8, Items.titanium, 4))
                 size = 2
                 update = true
                 health = 2000
             }
 
-            reWall = object : ReWall("rewall") {}.apply {
+            reWall = ReWall("rewall").apply {
                 requirements(Category.defense, with(Items.silicon, 3, Items.lead, 2, Items.titanium, 1))
                 size = 1
                 update = true
                 health = 500
             }
 
-            scraper = object : Drill("scraper") {}.apply {
+            scraper = Drill("scraper").apply {
                 requirements(Category.production, with(Items.scrap, 4))
                 size = 1
                 tier = 2
@@ -119,7 +119,7 @@ class ReBlocks {
                 drawMineItem = false
             }
 
-            shredder = object : ItemTurret("shredder") {}.apply {
+            shredder = ItemTurret("shredder").apply {
                 requirements(Category.turret, with(Items.scrap, 35))
                 ammo(
                     Items.scrap, ReBullets.scrapShredder,
@@ -136,7 +136,7 @@ class ReBlocks {
                 reload = 2f
             }
 
-            sieve = object : GenericCrafter("sieve") {}.apply {
+            sieve = GenericCrafter("sieve").apply {
                 requirements(Category.crafting, with(Items.copper, 35))
                 size = 1
                 craftTime = 60f
@@ -148,7 +148,7 @@ class ReBlocks {
                 consumeItem(Items.sand, 4)
             }
 
-            tainter = object : GenericCrafter("tainter") {}.apply {
+            tainter = GenericCrafter("tainter").apply {
                 requirements(Category.crafting, with(Items.copper, 75, Items.lead, 50, Items.titanium, 50))
                 size = 2
                 craftTime = 60f
@@ -164,7 +164,7 @@ class ReBlocks {
                 consumeLiquid(Liquids.water, 0.2f)
             }
 
-            thorns = object : Thorns("thorns") {}.apply {
+            thorns = Thorns("thorns").apply {
                 requirements(Category.effect, with(Items.scrap, 4))
                 hasShadow = false
                 health = 100
@@ -174,20 +174,20 @@ class ReBlocks {
                 targetable = false
             }
 
-            windTurbine = object : WindTurbine("wind-turbine") {}.apply {
+            windTurbine = WindTurbine("wind-turbine").apply {
                 requirements(Category.power, with(Items.copper, 35, Items.lead, 35, Items.graphite, 35))
                 size = 2
                 powerProduction = 0.5f
             }
 
-            collector = object : Collector("collector") {}.apply {
+            collector = Collector("collector").apply {
                 requirements(Category.effect, with(Items.titanium, 100))
                 hasItems = true
                 size = 2
                 itemCapacity = 300
             }
 
-            multiDrill = object : MultiDrill("multi-drill") {}.apply {
+            multiDrill = MultiDrill("multi-drill").apply {
                 requirements(
                     Category.production,
                     with(Items.copper, 130, Items.silicon, 120, Items.graphite, 100, Items.phaseFabric, 75)
@@ -199,7 +199,7 @@ class ReBlocks {
                 consumeLiquid(Liquids.water, 0.2f).boost()
             }
 
-            coalLiquefier = object : CoalLiquefier("coal-liquefier") {}.apply {
+            coalLiquefier = CoalLiquefier("coal-liquefier").apply {
                 requirements(
                     Category.crafting,
                     with(Items.copper, 150, Items.graphite, 175, Items.lead, 115, Items.thorium, 115, Items.silicon, 75)
@@ -218,7 +218,7 @@ class ReBlocks {
                 consumeLiquid(Liquids.water, 0.25f)
             }
 
-            hacker = object : HackTurret("hacker") {}.apply {
+            hacker = HackTurret("hacker").apply {
                 requirements(Category.turret, with(Items.silicon, 120, Items.titanium, 90, Items.graphite, 30))
                 hasPower = true
                 size = 2

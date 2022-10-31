@@ -8,7 +8,7 @@ class ReItems {
         lateinit var snowball: Item
 
         fun load() {
-            snowball = object : Item("snowball", Color.valueOf("FFFFFF")) {}.apply {
+            snowball = Item("snowball", Color.valueOf("FFFFFF")).apply {
                 alwaysUnlocked = true
                 lowPriority = true
             }

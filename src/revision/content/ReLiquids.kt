@@ -9,7 +9,7 @@ class ReLiquids {
         lateinit var pollutedWater: Liquid
 
         fun load() {
-            pollutedWater = object : Liquid("polluted-water") {}.apply {
+            pollutedWater = Liquid("polluted-water").apply {
                 temperature = 0.5f
                 viscosity = 0.5f
                 heatCapacity = 0.4f

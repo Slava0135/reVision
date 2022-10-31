@@ -19,14 +19,14 @@ class ReBullets {
         lateinit var pollutedWave: BulletType
 
         fun load() {
-            scrapShredder = object : BasicBulletType(3f, 4f) {}.apply {
+            scrapShredder = BasicBulletType(3f, 4f).apply {
                 width = 5f
                 height = 7f
                 shootEffect = shootSmall
                 smokeEffect = shootSmallSmoke
                 ammoMultiplier = 8f
             }
-            coalShredder = object : BasicBulletType(3f, 2f) {}.apply {
+            coalShredder = BasicBulletType(3f, 2f).apply {
                 width = 5f
                 height = 7f
                 frontColor = Color.orange
@@ -37,7 +37,7 @@ class ReBullets {
                 smokeEffect = shootSmallSmoke
                 ammoMultiplier = 8f
             }
-            siliconShredder = object : BasicBulletType(3f, 4f) {}.apply {
+            siliconShredder = BasicBulletType(3f, 4f).apply {
                 width = 5f
                 height = 7f
                 shootEffect = shootSmall
@@ -45,7 +45,7 @@ class ReBullets {
                 homingPower = 0.05f
                 ammoMultiplier = 8f
             }
-            snowballShredder = object : BasicBulletType(3f, 0f) {}.apply {
+            snowballShredder = BasicBulletType(3f, 0f).apply {
                 width = 5f
                 height = 7f
                 frontColor = Color.valueOf("FFFFFF")
@@ -56,7 +56,7 @@ class ReBullets {
                 smokeEffect = shootSmallSmoke
                 ammoMultiplier = 8f
             }
-            pollutedTsunami = object : LiquidBulletType() {}.apply {
+            pollutedTsunami = LiquidBulletType().apply {
                 liquid = ReLiquids.pollutedWater
                 statusDuration = 300f
                 lifetime = 49f
@@ -67,7 +67,7 @@ class ReBullets {
                 ammoMultiplier = 0.4f
                 damage = 0.2f
             }
-            pollutedWave = object : LiquidBulletType() {}.apply {
+            pollutedWave = LiquidBulletType().apply {
                 liquid = ReLiquids.pollutedWater
                 knockback = 0.7f
                 statusDuration = 300f
