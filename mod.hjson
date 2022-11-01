@@ -2,7 +2,7 @@ name: "revision"
 displayName: "reVision"
 author: "Slava0135"
 main: "revision.ReVision"
-description: "The other way around"
+description: "Install for fresh and revised mindustry experience"
 version: "13.1"
 minGameVersion: 136
 
