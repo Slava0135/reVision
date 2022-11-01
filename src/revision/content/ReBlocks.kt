@@ -13,15 +13,17 @@ import mindustry.world.Block
 import mindustry.world.blocks.defense.turrets.ItemTurret
 import mindustry.world.blocks.production.Drill
 import mindustry.world.blocks.production.GenericCrafter
+import mindustry.world.draw.DrawDefault
+import mindustry.world.draw.DrawLiquidTile
+import mindustry.world.draw.DrawMulti
+import mindustry.world.draw.DrawRegion
 import revision.world.blocks.defense.HackTurret
 import revision.world.blocks.defense.ReWall
 import revision.world.blocks.defense.Thorns
 import revision.world.blocks.power.WindTurbine
-import revision.world.blocks.production.CoalLiquefier
-import revision.world.blocks.production.Freezer
-import revision.world.blocks.production.Heater
 import revision.world.blocks.production.MultiDrill
 import revision.world.blocks.units.Collector
+
 
 class ReBlocks {
     companion object {
@@ -62,10 +64,15 @@ class ReBlocks {
                 consumeLiquid(ReLiquids.pollutedWater, 1f)
             }
 
-            freezer = Freezer("freezer").apply {
+            freezer = GenericCrafter("freezer").apply {
                 requirements(
                     Category.crafting,
                     with(Items.copper, 125, Items.lead, 100, Items.graphite, 50, Items.metaglass, 50)
+                )
+                drawer = DrawMulti(
+                    DrawRegion("-bottom"),
+                    DrawLiquidTile(Liquids.water),
+                    DrawDefault(),
                 )
                 size = 3
                 craftTime = 30f
@@ -80,8 +87,13 @@ class ReBlocks {
                 consumeLiquid(Liquids.water, 0.4f)
             }
 
-            heater = Heater("heater").apply {
+            heater = GenericCrafter("heater").apply {
                 requirements(Category.crafting, with(Items.copper, 75, Items.lead, 50, Items.metaglass, 50))
+                drawer = DrawMulti(
+                    DrawRegion("-bottom"),
+                    DrawLiquidTile(Liquids.water),
+                    DrawDefault(),
+                )
                 size = 2
                 craftTime = 20f
                 liquidCapacity = 60f
@@ -199,10 +211,15 @@ class ReBlocks {
                 consumeLiquid(Liquids.water, 0.2f).boost()
             }
 
-            coalLiquefier = CoalLiquefier("coal-liquefier").apply {
+            coalLiquefier = GenericCrafter("coal-liquefier").apply {
                 requirements(
                     Category.crafting,
                     with(Items.copper, 150, Items.graphite, 175, Items.lead, 115, Items.thorium, 115, Items.silicon, 75)
+                )
+                drawer = DrawMulti(
+                    DrawRegion("-bottom"),
+                    DrawLiquidTile(Liquids.oil),
+                    DrawDefault(),
                 )
                 size = 3
                 craftTime = 60f
