@@ -15,15 +15,6 @@ class ReSearchTree {
         var context: TechNode? = null
 
         fun load() {
-            margeNode(ReBlocks.shredder) {
-                node(scrapWall) {
-                    node(scrapWallLarge) {
-                        node(scrapWallHuge) {
-                            node(scrapWallGigantic)
-                        }
-                    }
-                }
-            }
             margeNode(blastDrill) {
                 node(ReBlocks.multiDrill)
             }
@@ -54,6 +45,13 @@ class ReSearchTree {
                 node(ReBlocks.sieve)
             }
             margeNode(duo) {
+                node(scrapWall) {
+                    node(scrapWallLarge) {
+                        node(scrapWallHuge) {
+                            node(scrapWallGigantic)
+                        }
+                    }
+                }
                 node(ReBlocks.shredder)
                 node(ReBlocks.thorns)
             }
