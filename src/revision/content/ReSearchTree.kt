@@ -8,7 +8,6 @@ import mindustry.ctype.UnlockableContent
 import mindustry.game.Objectives.Objective
 import mindustry.game.Objectives.Produce
 import mindustry.type.ItemStack
-import revision.content.ReBlocks.Companion.hacker
 
 class ReSearchTree {
     companion object {
@@ -55,8 +54,8 @@ class ReSearchTree {
                 node(ReBlocks.shredder)
                 node(ReBlocks.thorns)
             }
-            margeNode(hacker) {
-                node(parallax)
+            margeNode(parallax) {
+                node(ReBlocks.hacker)
             }
         }
 
