@@ -14,11 +14,6 @@ buildscript{
         //windows sucks
         isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
         sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
-
-        doExec = { cmd ->
-            def proc = cmd.execute(null, new File("$rootProject.layout.buildDirectory/libs"))
-            proc.waitForProcessOutput(System.out, System.err)
-        }
     }
 
     dependencies{
