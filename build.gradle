@@ -72,12 +72,12 @@ tasks.register('jarAndroid') {
 
         //dex and desugar files - this requires d8 in your PATH
         "$d8 $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
-                .execute(null, new File("$project.rootProject.layout.buildDirectory/libs")).waitForProcessOutput(System.out, System.err)
+                .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
     }
 }
 
 jar{
-    archiveFileName = "${project.rootProject.layout.buildDirectory}Desktop.jar"
+    archiveFileName = "${buildDir}Desktop.jar"
 
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
@@ -97,10 +97,10 @@ tasks.register('deploy', Jar) {
     dependsOn jar
     archiveFileName = "${project.archivesBaseName}.jar"
 
-    from { [zipTree("$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Android.jar")] }
+    from { [zipTree("$buildDir/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$buildDir/libs/${project.archivesBaseName}Android.jar")] }
 
     doLast {
-        delete { delete "$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Desktop.jar" }
-        delete { delete "$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Android.jar" }
+        delete { delete "$buildDir/libs/${project.archivesBaseName}Desktop.jar" }
+        delete { delete "$buildDir/libs/${project.archivesBaseName}Android.jar" }
     }
 }
