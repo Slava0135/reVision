@@ -1,4 +1,4 @@
-version '1.0'
+version = '1.0'
 
 buildscript{
     repositories{
@@ -8,13 +8,13 @@ buildscript{
     ext{
         kotlinVersion = "1.7.20"
         //the build number that this mod is made for
-        mindustryVersion = 'v137'
+        mindustryVersion = 'v146'
         //version of SDK you will be using
         sdkVersion = '30'
         sdkRoot = System.getenv("ANDROID_HOME")
 
         doExec = { cmd ->
-            def proc = cmd.execute(null, new File("$buildDir/libs"))
+            def proc = cmd.execute(null, new File("$rootProject.layout.buildDirectory/libs"))
             proc.waitForProcessOutput(System.out, System.err)
         }
     }
@@ -30,7 +30,8 @@ sourceSets.main.kotlin.srcDirs = ["src"]
 
 repositories{
     mavenCentral()
-    maven{ url 'https://www.jitpack.io' }
+    maven{ url = "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
+    maven{ url = 'https://www.jitpack.io' }
 }
 
 dependencies{
@@ -39,21 +40,21 @@ dependencies{
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 
-task jarAndroid{
+tasks.register('jarAndroid') {
     dependsOn "jar"
 
-    doLast{
+    doLast {
         //collect dependencies needed for desugaring
         def files = (configurations.compileClasspath.asList() + configurations.runtimeClasspath.asList() + [new File("$sdkRoot/platforms/android-$sdkVersion/android.jar")])
-        def dependencies = files.collect{ "--classpath $it.path" }.join(" ")
+        def dependencies = files.collect { "--classpath $it.path" }.join(" ")
 
         //dex and desugar files - this requires d8 in your PATH
-        doExec("d8 $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar")
+        doExec("d8 $dependencies --min-api 14 --output ${project.rootProject.layout.buildDirectory}Android.jar ${project.rootProject.layout.buildDirectory}Desktop.jar")
     }
 }
 
 jar{
-    archiveFileName = "${project.archivesBaseName}Desktop.jar"
+    archiveFileName = "${project.rootProject.layout.buildDirectory}Desktop.jar"
 
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
@@ -68,15 +69,15 @@ jar{
     }
 }
 
-task deploy(type: Jar){
+tasks.register('deploy', Jar) {
     dependsOn jarAndroid
     dependsOn jar
     archiveFileName = "${project.archivesBaseName}.jar"
 
-    from{ [zipTree("$buildDir/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$buildDir/libs/${project.archivesBaseName}Android.jar")] }
+    from { [zipTree("$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Android.jar")] }
 
-    doLast{
-        delete{ delete "$buildDir/libs/${project.archivesBaseName}Desktop.jar" }
-        delete{ delete "$buildDir/libs/${project.archivesBaseName}Android.jar" }
+    doLast {
+        delete { delete "$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Desktop.jar" }
+        delete { delete "$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Android.jar" }
     }
 }
