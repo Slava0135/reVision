@@ -9,8 +9,7 @@ buildscript{
         kotlinVersion = "2.1.20"
         //the build number that this mod is made for
         mindustryVersion = 'v146'
-        //version of SDK you will be using
-        sdkVersion = '34'
+        jabelVersion = "93fde537c7"
         //windows sucks
         isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
         sdkRoot = System.getenv("ANDROID_HOME") ?: System.getenv("ANDROID_SDK_ROOT")
@@ -43,6 +42,9 @@ allprojects{
 dependencies{
     compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
     compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+
+    annotationProcessor "com.github.Anuken:jabel:$jabelVersion"
+
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 }
 
