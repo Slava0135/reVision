@@ -60,6 +60,7 @@ configurations.configureEach {
 
 tasks.register('jarAndroid') {
     dependsOn "jar"
+
     doLast{
         if(!sdkRoot || !new File(sdkRoot as String).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.")
 
@@ -83,8 +84,11 @@ tasks.register('jarAndroid') {
         def d8Path = whichOutputStream.toString().trim()
         logger.info("d8 path: $d8Path")
 
+        def wd = new File("$buildDir/libs")
+        wd.mkdirs()
+
         "$d8Path $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
-                .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
+                .execute(null, wd).waitForProcessOutput(System.out, System.err)
     }
 }
 
