@@ -26,7 +26,9 @@ jobs:
         java --version
         d8 --version
     - name: Build mod jar
-      run: ./gradlew deploy
+      run: |
+        chmod +x gradlew
+        ./gradlew deploy
     - name: Upload built jar file
       uses: actions/upload-artifact@v4
       with:
