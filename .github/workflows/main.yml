@@ -19,6 +19,7 @@ jobs:
     - name: Set up PATH
       run: |
         echo "${ANDROID_HOME}/build-tools/34.0.0" >> $GITHUB_PATH
+        ls "${ANDROID_HOME}/build-tools/34.0.0"
     - name: Build mod jar
       run: ./gradlew deploy
     - name: Upload built jar file
