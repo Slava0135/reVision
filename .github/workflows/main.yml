@@ -25,8 +25,6 @@ jobs:
       run: |
         java --version
         d8 --version
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4
     - name: Build mod jar
       run: |
         chmod +x gradlew
