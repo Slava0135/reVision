@@ -81,6 +81,7 @@ tasks.register('jarAndroid') {
             workingDir project.rootDir
         }
         def d8Path = whichOutputStream.toString().trim()
+        logger.info("d8 path: $d8Path")
 
         def d8OutputStream = new ByteArrayOutputStream()
         project.exec {
