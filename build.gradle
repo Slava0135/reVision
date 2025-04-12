@@ -83,6 +83,7 @@ tasks.register('jarAndroid') {
         def d8Path = whichOutputStream.toString().trim()
         logger.info("d8 path: $d8Path")
 
+        dependencies = ""
         def d8OutputStream = new ByteArrayOutputStream()
         project.exec {
             workingDir "$project.rootProject.layout.buildDirectory/libs"
