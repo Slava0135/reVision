@@ -75,7 +75,7 @@ tasks.register('jarAndroid') {
 
 //        def d8Path = d8
         // for some reason d8 is not in path in CI...
-        def d8Path = $sdkRoot/build-tools/$sdkVersion/$d8
+        def d8Path = "$sdkRoot/build-tools/$sdkVersion/$d8"
 
         //dex and desugar files - this requires d8 in your PATH
         "$d8Path $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
