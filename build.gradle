@@ -89,7 +89,7 @@ tasks.register('jarAndroid') {
 }
 
 jar{
-    archiveFileName = "${project.rootProject.layout.buildDirectory}Desktop.jar"
+    archiveFileName = "${buildDir}Desktop.jar"
 
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
