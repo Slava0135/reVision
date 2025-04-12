@@ -84,10 +84,9 @@ tasks.register('jarAndroid') {
 
         def d8OutputStream = new ByteArrayOutputStream()
         project.exec {
+            workingDir "$project.rootProject.layout.buildDirectory/libs"
             standardOutput = d8OutputStream
-            commandLine 'bash', '-c',
-                    'cd', "$project.rootProject.layout.buildDirectory/libs",
-                    '&&', "$d8Path", "$dependencies", "--min-api", "14",
+            commandLine d8Path, "$dependencies", "--min-api", "14",
                     "--output", "${project.archivesBaseName}Android.jar", "${project.archivesBaseName}Desktop.jar"
         }
         ext.output = {
