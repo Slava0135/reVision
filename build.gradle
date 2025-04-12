@@ -61,6 +61,11 @@ configurations.configureEach {
 tasks.register('jarAndroid') {
     dependsOn "jar"
 
+    def wd = new File("$buildDir/libs")
+    doFirst{
+        wd.mkdirs()
+    }
+
     doLast{
         if(!sdkRoot || !new File(sdkRoot as String).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.")
 
@@ -74,20 +79,7 @@ tasks.register('jarAndroid') {
         def d8 = isWindows ? "d8.bat" : "d8"
 
         //dex and desugar files - this requires d8 in your PATH
-
-        def whichOutputStream = new ByteArrayOutputStream()
-        project.exec {
-            commandLine 'which', "$d8"
-            standardOutput = whichOutputStream
-            workingDir project.rootDir
-        }
-        def d8Path = whichOutputStream.toString().trim()
-        logger.info("d8 path: $d8Path")
-
-        def wd = new File("$buildDir/libs")
-        wd.mkdirs()
-
-        "$d8Path $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
+        "$d8 $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
                 .execute(null, wd).waitForProcessOutput(System.out, System.err)
     }
 }
