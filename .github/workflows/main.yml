@@ -21,6 +21,10 @@ jobs:
         ls "${ANDROID_HOME}/build-tools/34.0.0"
         echo "${ANDROID_HOME}/build-tools/34.0.0" >> $GITHUB_PATH
         echo "Updated PATH: $PATH"
+    - name: General information
+      run: |
+        java --version
+        d8 --version
     - name: Build mod jar
       run: ./gradlew deploy
     - name: Upload built jar file
