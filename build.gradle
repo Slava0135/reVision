@@ -6,7 +6,7 @@ buildscript{
     }
 
     ext{
-        kotlinVersion = "2.1.20"
+        kotlinVersion = "1.9.25"
         //the build number that this mod is made for
         mindustryVersion = 'v146'
         jabelVersion = "93fde537c7"
