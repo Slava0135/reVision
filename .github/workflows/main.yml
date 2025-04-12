@@ -1,6 +1,10 @@
 name: Java CI
 
-on: [push]
+on:
+  push:
+    branches:
+    - master
+  pull_request:
 
 jobs:
   buildJar:
@@ -14,9 +18,17 @@ jobs:
         java-version: 17
     - name: Set up PATH
       run: |
+        ls "${ANDROID_HOME}/build-tools/34.0.0"
         echo "${ANDROID_HOME}/build-tools/34.0.0" >> $GITHUB_PATH
+        echo "Updated PATH: $PATH"
+    - name: General information
+      run: |
+        java --version
+        d8 --version
     - name: Build mod jar
-      run: ./gradlew deploy
+      run: |
+        chmod +x gradlew
+        ./gradlew deploy
     - name: Upload built jar file
       uses: actions/upload-artifact@v4
       with:
