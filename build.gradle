@@ -84,7 +84,7 @@ tasks.register('jarAndroid') {
         logger.info("d8 path: $d8Path")
 
         "$d8Path $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
-                .execute(null, new File("$rootProject.layout.buildDirectory/libs")).waitForProcessOutput(System.out, System.err)
+                .execute(null, new File("$buildDir/libs")).waitForProcessOutput(System.out, System.err)
     }
 }
 
