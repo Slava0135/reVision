@@ -109,10 +109,10 @@ tasks.register('deploy', Jar) {
     dependsOn jar
     archiveFileName = "${project.archivesBaseName}.jar"
 
-    from { [zipTree("$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Android.jar")] }
+    from { [zipTree("$buildDir/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$buildDir/libs/${project.archivesBaseName}Android.jar")] }
 
     doLast {
-        delete { delete "$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Desktop.jar" }
-        delete { delete "$rootProject.layout.buildDirectory/libs/${project.archivesBaseName}Android.jar" }
+        delete { delete "$buildDir/libs/${project.archivesBaseName}Desktop.jar" }
+        delete { delete "$buildDir/libs/${project.archivesBaseName}Android.jar" }
     }
 }
