@@ -58,13 +58,10 @@ configurations.configureEach {
     }
 }
 
+jarDir = "$buildDir/libs"
+
 tasks.register('jarAndroid') {
     dependsOn "jar"
-
-    def wd = new File("$buildDir/libs")
-    doFirst{
-        wd.mkdirs()
-    }
 
     doLast{
         if(!sdkRoot || !new File(sdkRoot as String).exists()) throw new GradleException("No valid Android SDK found. Ensure that ANDROID_HOME is set to your Android SDK directory.")
@@ -80,12 +77,12 @@ tasks.register('jarAndroid') {
 
         //dex and desugar files - this requires d8 in your PATH
         "$d8 $dependencies --min-api 14 --output ${project.archivesBaseName}Android.jar ${project.archivesBaseName}Desktop.jar"
-                .execute(null, wd).waitForProcessOutput(System.out, System.err)
+                .execute(null, new File(jarDir)).waitForProcessOutput(System.out, System.err)
     }
 }
 
 jar{
-    archiveFileName = "${buildDir}Desktop.jar"
+    archiveFileName = "$jarDir/libs/Desktop.jar"
 
     from{
         configurations.runtimeClasspath.collect{ it.isDirectory() ? it : zipTree(it) }
@@ -105,10 +102,10 @@ tasks.register('deploy', Jar) {
     dependsOn jar
     archiveFileName = "${project.archivesBaseName}.jar"
 
-    from { [zipTree("$buildDir/libs/${project.archivesBaseName}Desktop.jar"), zipTree("$buildDir/libs/${project.archivesBaseName}Android.jar")] }
+    from { [zipTree("$jarDir/${project.archivesBaseName}Desktop.jar"), zipTree("$jarDir/libs/${project.archivesBaseName}Android.jar")] }
 
     doLast {
-        delete { delete "$buildDir/libs/${project.archivesBaseName}Desktop.jar" }
-        delete { delete "$buildDir/libs/${project.archivesBaseName}Android.jar" }
+        delete { delete "$jarDir/libs/${project.archivesBaseName}Desktop.jar" }
+        delete { delete "$jarDir/libs/${project.archivesBaseName}Android.jar" }
     }
 }
