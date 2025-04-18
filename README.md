@@ -1,6 +1,6 @@
 ![logo](assets/preview.png)
 
-# V13 - mindustry v7 support
+# V14 - mindustry v8 support
 ## Additions
 #### Hacker
 * Capture enemy units

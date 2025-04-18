@@ -145,9 +145,9 @@ open class MultiDrill(name: String) : Block(name) {
         var timeDrilled = 0f
         var warmup = 0f
 
-        override fun shouldActiveSound() = efficiency() > 0.01f
+        override fun shouldAmbientSound() = efficiency > 0.01f && items.total() < itemCapacity
 
-        override fun ambientVolume() = efficiency() * (size * size) / 4f
+        override fun ambientVolume() = efficiency * (size * size) / 4f
 
         override fun drawSelect() {
             var off = 0

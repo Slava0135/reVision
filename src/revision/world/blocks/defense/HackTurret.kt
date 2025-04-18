@@ -13,8 +13,8 @@ import arc.util.io.Writes
 import mindustry.Vars
 import mindustry.entities.Units
 import mindustry.entities.Units.Sortf
-import mindustry.game.EventType
-import mindustry.gen.*
+import mindustry.gen.Healthc
+import mindustry.gen.Sounds
 import mindustry.gen.Unit
 import mindustry.graphics.Drawf
 import mindustry.graphics.Layer
@@ -70,7 +70,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
     inner class HackBuild : BaseTurretBuild() {
 
         var target: Unit? = null
-        var lastX = 0f;
+        var lastX = 0f
         var lastY = 0f
         var progress = 0f
         var normalProgress = 0f
@@ -125,7 +125,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
         }
 
         private fun validateTarget(): Boolean {
-            return !Units.invalidateTarget(target, team, x, y, range) && efficiency() > 0.02f
+            return !Units.invalidateTarget(target, team, x, y, range) && efficiency > 0.02f
         }
 
         override fun onRemoved() {
@@ -154,7 +154,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
             Drawf.laser(
                 laser, laserEnd,
                 x + Angles.trnsx(ang, shootLength), y + Angles.trnsy(ang, shootLength),
-                lastX, lastY, efficiency() * laserWidth
+                lastX, lastY, efficiency * laserWidth
             )
             Draw.mixcol()
         }

@@ -29,9 +29,9 @@ open class ReWall(name: String) : Wall(name) {
         super.setBars()
         addBar("efficiency") { entity: ReWallBuild ->
             Bar(
-                { Core.bundle.formatFloat("bar.efficiency", 100 * entity.efficiency(), 1) },
+                { Core.bundle.formatFloat("bar.efficiency", 100 * entity.efficiency, 1) },
                 { Pal.ammo },
-                { entity.efficiency() }
+                { entity.efficiency }
             )
         }
     }
@@ -44,14 +44,15 @@ open class ReWall(name: String) : Wall(name) {
                 timeElapsed += delta()
                 if (timeElapsed > healInterval) {
                     timeElapsed = 0f
-                    heal(efficiency() * healRatio * maxHealth)
+                    heal(efficiency * healRatio * maxHealth)
                     Fx.healBlockFull.at(x, y, block.size.toFloat(), Pal.heal, this.block)
                 }
             }
         }
 
-        override fun efficiency() =
-            Mathf.maxZero(Attribute.light.env() + if (Vars.state.rules.lighting) 1f - Vars.state.rules.ambientLight.a else 1f)
+        override fun efficiencyScale(): Float {
+            return Mathf.maxZero(Attribute.light.env() + if (Vars.state.rules.lighting) 1f - Vars.state.rules.ambientLight.a else 1f)
+        }
     }
 
 }

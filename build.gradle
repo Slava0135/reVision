@@ -8,7 +8,7 @@ buildscript{
     ext{
         kotlinVersion = "1.9.25"
         //the build number that this mod is made for
-        mindustryVersion = 'v146'
+        mindustryVersion = 'v147.1'
         jabelVersion = "93fde537c7"
         //windows sucks
         isWindows = System.getProperty("os.name").toLowerCase().contains("windows")
