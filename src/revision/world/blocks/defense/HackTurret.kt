@@ -37,7 +37,7 @@ open class HackTurret(name: String) : BaseTurret(name) {
     var targetAir = true
     var targetGround = true
     var laserColor = Color.white
-    var shootSound = Sounds.tractorbeam
+    var shootSound = Sounds.beamParallax
     var shootSoundVolume = 0.9f
 
     var unitSort = Sortf { obj: Unit, x: Float, y: Float -> obj.dst2(x, y) }

@@ -52,7 +52,7 @@ open class MultiDrill(name: String) : Block(name) {
         group = BlockGroup.drills
         hasLiquids = true
         hasItems = true
-        ambientSound = Sounds.drill
+        ambientSound = Sounds.loopDrill
         ambientSoundVolume = 0.018f
     }
 

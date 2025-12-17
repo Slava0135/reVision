@@ -3,8 +3,7 @@ package revision.content
 import mindustry.content.Fx
 import mindustry.content.Items
 import mindustry.content.Liquids
-import mindustry.gen.Sounds.door
-import mindustry.gen.Sounds.release
+import mindustry.gen.Sounds
 import mindustry.type.Category
 import mindustry.type.ItemStack
 import mindustry.type.ItemStack.with
@@ -53,7 +52,7 @@ class ReBlocks {
                 craftTime = 60f
                 liquidCapacity = 120f
                 craftEffect = Fx.steam
-                ambientSound = release
+                ambientSound = Sounds.loopMachine
                 hasPower = true
                 hasLiquids = true
                 hasItems = true
@@ -78,7 +77,7 @@ class ReBlocks {
                 craftTime = 30f
                 liquidCapacity = 120f
                 craftEffect = Fx.pickup
-                ambientSound = release
+                ambientSound = Sounds.loopMachine
                 hasPower = true
                 hasLiquids = true
                 hasItems = true
@@ -98,7 +97,7 @@ class ReBlocks {
                 craftTime = 20f
                 liquidCapacity = 60f
                 craftEffect = Fx.steam
-                ambientSound = release
+                ambientSound = Sounds.loopSteam
                 hasPower = true
                 hasLiquids = true
                 hasItems = true
@@ -153,6 +152,7 @@ class ReBlocks {
                 size = 1
                 craftTime = 60f
                 craftEffect = Fx.pulverize
+                ambientSound = Sounds.door
                 hasPower = false
                 hasLiquids = false
                 hasItems = true
@@ -165,7 +165,7 @@ class ReBlocks {
                 size = 2
                 craftTime = 60f
                 liquidCapacity = 60f
-                ambientSound = door
+                ambientSound = Sounds.loopSpray
                 craftEffect = Fx.pickup
                 hasPower = true
                 hasLiquids = true
@@ -225,7 +225,7 @@ class ReBlocks {
                 craftTime = 60f
                 liquidCapacity = 240f
                 craftEffect = Fx.steam
-                ambientSound = release
+                ambientSound = Sounds.loopSteam
                 outputLiquid = LiquidStack(Liquids.oil, 0.25f)
                 hasPower = true
                 hasLiquids = true
